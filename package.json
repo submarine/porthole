@@ -1,0 +1,19 @@
+{
+  "name": "@submarine/porthole",
+  "description": "Monorepo for Submarine's Porthole framework.",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{js,jsx,md}\""
+  },
+  "devDependencies": {
+    "turbo": "^2.0.9"
+  },
+  "packageManager": "yarn@1.22.22",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

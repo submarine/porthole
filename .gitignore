@@ -1,0 +1,13 @@
+.DS_Store
+node_modules
+.turbo
+.yarn
+*.log
+build
+dist
+dist-ssr
+*.local
+.env
+.cache
+server/dist
+public/dist
