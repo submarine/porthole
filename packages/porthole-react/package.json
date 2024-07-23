@@ -1,8 +1,9 @@
 {
   "name": "@submarine/porthole-react",
   "description": "Components and utilities for building React applications for Submarine.",
-  "private": true,
   "version": "0.0.1",
+  "private": false,
+  "license": "SEE LICENSE IN LICENSE.md",
   "type": "module",
   "scripts": {
     "dev": "vite",

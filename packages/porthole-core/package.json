@@ -1,8 +1,9 @@
 {
   "name": "@submarine/porthole-core",
   "description": "Javascript client for the Submarine GraphQL API.",
-  "private": true,
   "version": "0.0.1",
+  "private": false,
+  "license": "SEE LICENSE IN LICENSE.md",
   "type": "module",
   "files": [
     "dist",

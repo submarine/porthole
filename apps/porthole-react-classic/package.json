@@ -1,7 +1,8 @@
 {
   "name": "@submarine/porthole-react-classic",
   "description": "React application for integrating Submarine with Liquid Shopify themes.",
-  "private": true,
+  "private": false,
+  "license": "SEE LICENSE IN LICENSE.md",
   "version": "0.0.1",
   "type": "module",
   "scripts": {
