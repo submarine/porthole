@@ -1,6 +1,6 @@
-import Collection from './Collection';
+import { Collection } from './Collection';
 
-class ItemCollection extends Collection {
+export class ItemCollection extends Collection {
 
   constructor(data, shop) {
     super(data);
@@ -50,5 +50,3 @@ class ItemCollection extends Collection {
   }
 
 }
-
-export default ItemCollection;

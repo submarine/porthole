@@ -1,4 +1,4 @@
-class Money {
+export class Money {
 
   constructor(data) {
     this.data = data || {};
@@ -17,5 +17,3 @@ class Money {
   }
 
 }
-
-export default Money;

@@ -1,4 +1,4 @@
-class Product {
+export class Product {
 
   constructor(data) {
     this.data = data;
@@ -33,5 +33,3 @@ class Product {
   }
 
 }
-
-export default Product;

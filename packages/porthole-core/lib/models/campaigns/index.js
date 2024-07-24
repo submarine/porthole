@@ -1,6 +1,6 @@
-export * from './Campaign';
-export * from './CampaignItem';
-export * from './CampaignOrder';
-export * from './CampaignOrderCollection';
-export * from './CampaignOrderGroup';
-export * from './PresaleCampaign';
+export { Campaign } from './Campaign';
+export { CampaignItem } from './CampaignItem';
+export { CampaignOrder } from './CampaignOrder';
+export { CampaignOrderCollection } from './CampaignOrderCollection';
+export { CampaignOrderGroup } from './CampaignOrderGroup';
+export { PresaleCampaign } from './PresaleCampaign';

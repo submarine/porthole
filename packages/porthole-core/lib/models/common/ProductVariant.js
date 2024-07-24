@@ -1,6 +1,6 @@
-import Product from './Product';
+import { Product } from './Product';
 
-class ProductVariant {
+export class ProductVariant {
 
   constructor(data) {
     this.data = data;
@@ -47,5 +47,3 @@ class ProductVariant {
   }
 
 }
-
-export default ProductVariant;

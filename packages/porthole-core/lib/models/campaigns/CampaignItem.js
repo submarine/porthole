@@ -1,8 +1,8 @@
-import CampaignInventoryItem from './CampaignInventoryItem';
-import Product from './Product';
-import ProductVariant from './ProductVariant';
+import { CampaignInventoryItem } from './CampaignInventoryItem';
+import { Product } from '../common/Product';
+import { ProductVariant } from '../common/ProductVariant';
 
-class CampaignItem {
+export class CampaignItem {
   constructor(data) {
     this.data = data;
   }
@@ -69,5 +69,3 @@ class CampaignItem {
     return this.data.resource.__typename === 'Product' ? 'PRODUCT' : 'PRODUCT_VARIANT';
   }
 }
-
-export default CampaignItem;

@@ -1,6 +1,6 @@
-import Campaign from './Campaign';
+import { Campaign } from './Campaign';
 
-class PresaleCampaign extends Campaign {
+export class PresaleCampaign extends Campaign {
   constructor(data, shop) {
     super(data?.node || data, shop);
 
@@ -32,5 +32,3 @@ class PresaleCampaign extends Campaign {
     return parseInt(percentage, 10);
   }
 }
-
-export default PresaleCampaign;

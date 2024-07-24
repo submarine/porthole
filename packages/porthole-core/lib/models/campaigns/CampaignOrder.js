@@ -1,9 +1,9 @@
-import CampaignItem from './CampaignItem';
-import CampaignOrderGroup from './CampaignOrderGroup'; // eslint-disable-line
-import CrowdfundingCampaign from './CrowdfundingCampaign';
-import Money from '../common/Money';
-import PresaleCampaign from './PresaleCampaign';
-import ProductVariant from './ProductVariant';
+import { CampaignItem } from './CampaignItem';
+import { CampaignOrderGroup } from './CampaignOrderGroup'; // eslint-disable-line
+import { CrowdfundingCampaign } from './CrowdfundingCampaign';
+import { Money } from '../common/Money';
+import { PresaleCampaign } from './PresaleCampaign';
+import { ProductVariant } from '../common/ProductVariant';
 
 const isEmpty = (value) => {
   if (Array.isArray(value)) return value.length === 0;
@@ -11,7 +11,7 @@ const isEmpty = (value) => {
   return value === '' || value == null;
 };
 
-class CampaignOrder {
+export class CampaignOrder {
   constructor(data, shop) {
     if (data.__typename === 'CampaignOrderEdge') {
       this.cursor = data.cursor;
@@ -221,5 +221,3 @@ class CampaignOrder {
     return new Money(this.data.financials.unitPrice);
   }
 }
-
-export default CampaignOrder;

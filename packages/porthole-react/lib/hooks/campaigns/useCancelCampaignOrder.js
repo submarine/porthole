@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/client';
 
-import { CANCEL_CAMPAIGN_ORDER } from "../../gql/presales";
+import { CANCEL_CAMPAIGN_ORDER } from '@submarine/porthole-core';
 
 export const useCancelCampaignOrder = (id, options) => {
   const [

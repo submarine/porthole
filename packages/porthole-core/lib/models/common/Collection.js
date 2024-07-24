@@ -1,4 +1,4 @@
-class Collection {
+export class Collection {
 
   constructor(data) {
     if (data) {
@@ -35,5 +35,3 @@ class Collection {
   }
 
 }
-
-export default Collection;

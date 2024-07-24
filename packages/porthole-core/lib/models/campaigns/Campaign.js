@@ -1,10 +1,10 @@
 import { DateTime } from 'luxon';
 
-import CampaignItem from './CampaignItem';
-import Product from '../common/Product';
-import ProductVariant from '../common/ProductVariant';
+import { CampaignItem } from './CampaignItem';
+import { Product } from '../common/Product';
+import { ProductVariant } from '../common/ProductVariant';
 
-class Campaign {
+export class Campaign {
   constructor(data, shop) {
     this.data = data;
     this.shop = shop;
@@ -165,10 +165,10 @@ class Campaign {
     const maxDateTime = DateTime.max(
       endAtDateTime,
       fulfilAtDateTime,
-      DateTime.now().plus({ weeks: 1 }).toUTC()
+      DateTime.now().plus({weeks: 1}).toUTC()
     );
 
-    return maxDateTime.plus({ hours: this.gracePeriodHours }).toUTC().toISO();
+    return maxDateTime.plus({hours: this.gracePeriodHours}).toUTC().toISO();
   }
 
   get fulfilAt() {
@@ -314,7 +314,7 @@ class Campaign {
         timestamp: this.createdAt,
         type: 'status'
       },
-      { hideLabel: false, label: 'End', name: 'endAt', timestamp: this.endAt, type: 'action' },
+      {hideLabel: false, label: 'End', name: 'endAt', timestamp: this.endAt, type: 'action'},
       {
         hideLabel: false,
         label: 'Ended',
@@ -357,18 +357,18 @@ class Campaign {
         timestamp: this.launchedAt,
         type: 'status'
       },
-      { hideLabel: true, label: 'Now', name: 'now', timestamp: now.toISO(), type: 'info' }
+      {hideLabel: true, label: 'Now', name: 'now', timestamp: now.toISO(), type: 'info'}
     ];
 
     return timestamps
       .filter((item) => !!item.timestamp)
       .map((item) => ({
         ...item,
-        ...{ timestamp: DateTime.fromISO(item.timestamp) }
+        ...{timestamp: DateTime.fromISO(item.timestamp)}
       }))
       .map((item) => ({
         ...item,
-        ...{ position: item.timestamp < now ? 'past' : 'future' }
+        ...{position: item.timestamp < now ? 'past' : 'future'}
       }))
       .sort((a, b) => a.timestamp - b.timestamp);
   }
@@ -437,5 +437,3 @@ class Campaign {
     return this.data.status;
   }
 }
-
-export default Campaign;

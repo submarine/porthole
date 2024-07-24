@@ -1,7 +1,7 @@
-import CampaignOrder from './CampaignOrder'; // eslint-disable-line
-import Money from '../common/Money';
+import { CampaignOrder } from './CampaignOrder'; // eslint-disable-line
+import { Money } from '../common/Money';
 
-class CampaignOrderGroup {
+export class CampaignOrderGroup {
   constructor(data) {
     this.data = data;
   }
@@ -80,5 +80,3 @@ class CampaignOrderGroup {
     return new Money(this.data.financials.tax.total);
   }
 }
-
-export default CampaignOrderGroup;
