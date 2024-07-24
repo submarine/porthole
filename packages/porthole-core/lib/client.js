@@ -20,7 +20,7 @@ const httpLink = new HttpLink({
 });
 
 const authLink = setContext(async (_, { headers }) => {
-  if (accessTokenExpired()) await refreshAccessToken();
+  if (!accessToken() || accessTokenExpired()) await refreshAccessToken();
 
   return {
     headers: {

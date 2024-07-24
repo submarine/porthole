@@ -2,8 +2,8 @@ import React from 'react';
 
 import { useSubscriptionCollection } from '../../../hooks';
 
-import { SubscriptionListList } from './SubscriptionListList';
 import { SubscriptionListError } from './SubscriptionListError';
+import { SubscriptionListItems } from './SubscriptionListItems.jsx';
 import { SubscriptionListLoading } from './SubscriptionListLoading';
 
 export const SubscriptionList = () => {
@@ -25,11 +25,15 @@ export const SubscriptionList = () => {
 
   if (subscriptionCollectionError) {
     return (
-      <SubscriptionListError />
+      <SubscriptionListError
+        message={subscriptionCollectionError.message}
+      />
     )
   }
 
   return (
-    <SubscriptionListList />
+    <SubscriptionListItems
+      subscriptionCollection={subscriptionCollection}
+    />
   )
 }

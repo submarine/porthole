@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const SubscriptionListLoading = ({ message }) => {
+import { Banner } from '../../common';
+
+export const SubscriptionListLoading = () => {
   return (
-    <p>
-      {message}
-    </p>
+    <Banner title="Loading..." />
   )
 }
