@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 
-import { CampaignOrderCollection, SEARCH_CAMPAIGN_ORDERS } from "@submarine/porthole-core";
+import { CampaignOrderCollection, SEARCH_CAMPAIGN_ORDERS } from '@submarine/porthole-core';
 
 import { useEffect, useState } from "react";
 

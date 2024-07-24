@@ -7,10 +7,10 @@ export default defineConfig({
   build: {
     copyPublicDir: false,
     lib: {
-      entry: path.resolve(__dirname, 'src/index.js'),
+      entry: path.resolve(__dirname, 'lib/index.js'),
       fileName: (format) => format === 'iife' ? 'porthole-core.js' : `porthole-core.${format}.js`,
       formats: ['cjs', 'es', 'iife', 'umd'],
-      name: 'Porthole'
+      name: 'PortholeReact'
     }
   },
   plugins: [

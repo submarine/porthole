@@ -10,7 +10,7 @@
     "lib"
   ],
   "main": "./dist/porthole-core.cjs.js",
-  "module": "./lib/index.js",
+  "module": "./lib",
   "exports": {
     ".": {
       "import": "./lib/index.js",

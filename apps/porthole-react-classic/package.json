@@ -11,9 +11,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@submarine/porthole-core": "*"
+    "@submarine/porthole-react": "*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "vite": "^5.2.12"
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "express": "^4.19.2",
+    "vite": "^5.2.12",
+    "vite-plugin-mix": "^0.4.0"
   }
 }
