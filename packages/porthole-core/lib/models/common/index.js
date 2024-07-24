@@ -1,5 +1,10 @@
+export { Address } from './Address';
 export { Collection } from './Collection';
+export { Country } from './Country';
 export { ItemCollection } from './ItemCollection';
 export { Money } from './Money';
+export { PaymentMethod } from './PaymentMethod';
+export { PhoneNumber } from './PhoneNumber';
 export { Product } from './Product';
 export { ProductVariant } from './ProductVariant';
+export { Province } from './Province';

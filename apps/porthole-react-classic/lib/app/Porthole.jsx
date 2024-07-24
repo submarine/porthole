@@ -2,38 +2,30 @@ import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import {
-  PresaleList as DefaultPresaleList,
-  Skeleton as DefaultSkeleton,
-  useThemedComponents
+  PresaleList,
+  Skeleton,
+  SubscriptionList
 } from '@submarine/porthole-react';
 
 const Porthole = () => {
-  const {
-    PresaleList: { component: PresaleList, props: presaleListProps },
-    Skeleton: { component: Skeleton, props: skeletonProps }
-  } = useThemedComponents({
-    PresaleList: (
-      <DefaultPresaleList />
-    ),
-    Skeleton: (
-      <DefaultSkeleton />
-    )
-  });
-
   const router = createBrowserRouter(
     [
       {
         path: "/presales",
-        element: <PresaleList {...presaleListProps} />
+        element: <PresaleList />
+      },
+      {
+        path: "/subscriptions",
+        element: <SubscriptionList />
       }
     ], {
-      basename: "/apps/platform"
+      basename: "/apps/platform/portal"
     }
   );
 
   return (
     <RouterProvider router={router}>
-      <Skeleton {...skeletonProps} />
+      <Skeleton />
     </RouterProvider>
   );
 };
