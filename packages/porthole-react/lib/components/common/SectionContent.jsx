@@ -1,6 +1,6 @@
 import React from "react";
 
-export const PageContent = ({ children, ...props }) => {
+export const SectionContent = ({ children, ...props }) => {
   return (
     <div {...props}>
       {children}

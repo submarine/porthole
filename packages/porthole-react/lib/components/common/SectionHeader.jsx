@@ -1,9 +1,9 @@
 import React from "react";
 
-export const PageContent = ({ children, ...props }) => {
+export const SectionHeader = ({ title, ...props }) => {
   return (
     <div {...props}>
-      {children}
+      <h3>{title}</h3>
     </div>
   );
 };

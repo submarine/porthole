@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { useSubscriptionOrder } from '../../../../hooks';
 
+import { Section, SectionContent, SectionHeader } from '../../../common';
 import { SubscriptionOrderSectionContent } from './SubscriptionOrderSectionContent';
 
 export const SubscriptionOrderSection = ({ subscription }) => {
@@ -16,10 +17,17 @@ export const SubscriptionOrderSection = ({ subscription }) => {
   });
 
   return (
-    <SubscriptionOrderSectionContent
-      subscriptionOrder={subscriptionOrder}
-      subscriptionOrderLoading={subscriptionOrderLoading}
-      subscriptionOrderError={subscriptionOrderError}
-    />
+    <Section>
+      <SectionHeader
+        title={`Upcoming order ${subscriptionOrder ? subscriptionOrder.identifier : '...'}`}
+      />
+      <SectionContent>
+        <SubscriptionOrderSectionContent
+          subscriptionOrder={subscriptionOrder}
+          subscriptionOrderLoading={subscriptionOrderLoading}
+          subscriptionOrderError={subscriptionOrderError}
+        />
+      </SectionContent>
+    </Section>
   );
 }

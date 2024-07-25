@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon';
 
 export const DATE_MED_WITH_WEEKDAY = 'DATE_MED_WITH_WEEKDAY';
+export const TIME_SIMPLE = 'TIME_SIMPLE';
 
 export const formatDateTime = (dateTime, format) => {
   if (!dateTime) return '';
