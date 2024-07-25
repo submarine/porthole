@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { Section, SectionContent, SectionHeader } from '../../../common';
+import { Address, Section, SectionContent, SectionHeader } from '../../../common';
 
 export const SubscriptionDeliverySection = ({ subscription }) => {
   return (
     <Section>
       <SectionHeader
-        title="SubscriptionDeliverySection"
+        title="Delivery"
       />
       <SectionContent>
-        Subscription delivery section.
+        <Address address={subscription.deliveryMethod.address} />
       </SectionContent>
     </Section>
   );

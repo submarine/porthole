@@ -1,15 +1,17 @@
 import React from 'react';
 
-import { Section, SectionContent, SectionHeader } from '../../../common';
+import { PaymentMethod, Section, SectionContent, SectionHeader } from '../../../common';
+import { UpdatePaymentMethod } from './UpdatePaymentMethod';
 
 export const SubscriptionPaymentSection = ({ subscription }) => {
   return (
     <Section>
       <SectionHeader
-        title="SubscriptionPaymentSection"
+        title="Payment"
       />
       <SectionContent>
-        Subscription payment section.
+        <PaymentMethod paymentMethod={subscription.paymentMethod} />
+        <UpdatePaymentMethod paymentMethod={subscription.paymentMethod} />
       </SectionContent>
     </Section>
   );

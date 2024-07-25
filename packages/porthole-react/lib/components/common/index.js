@@ -11,6 +11,7 @@ export * from './Money';
 export * from './Page';
 export * from './PageContent';
 export * from './PageHeader';
+export * from './PaymentMethod';
 export * from './Section';
 export * from './SectionContent';
 export * from './SectionHeader';
