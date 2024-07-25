@@ -76,7 +76,14 @@ export const SUBSCRIPTION_DETAILS = `
   nextDeliveryAt
   nextScheduledOrder {
     cycleIndex
+    expectedBillingAt
     expectedDeliveryAt
+    financials {
+      totalPrice {
+        amount
+        currency
+      }
+    }
     id
     nextSubscriptionOrder {
       id

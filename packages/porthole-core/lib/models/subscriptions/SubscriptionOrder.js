@@ -1,4 +1,5 @@
 // eslint-disable-next-line import/no-cycle
+import { Money } from '../common';
 import { Subscription } from './Subscription';
 import { SubscriptionDeliveryMethod } from './SubscriptionDeliveryMethod';
 import { SubscriptionPlan } from './SubscriptionPlan';
