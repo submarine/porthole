@@ -10,7 +10,7 @@ export const SubscriptionStatusSection = ({ subscription }) => {
   return (
     <Section>
       <SectionHeader
-        title="SubscriptionStatusSection"
+        title="Manage subscription"
       />
       <SectionContent>
         {subscription.canPause && <Pause subscription={subscription} />}
