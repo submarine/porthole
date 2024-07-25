@@ -1,8 +1,11 @@
 import React from 'react';
 
-import { SubscriptionOrderSection } from './SubscriptionOrderSection';
 import { SubscriptionActionsSection } from './SubscriptionActionsSection';
+import { SubscriptionDeliverySection } from './SubscriptionDeliverySection';
+import { SubscriptionOrderSection } from './SubscriptionOrderSection';
 import { SubscriptionOverviewSection } from './SubscriptionOverviewSection';
+import { SubscriptionPaymentSection } from './SubscriptionPaymentSection';
+import { SubscriptionStatusSection } from './SubscriptionStatusSection';
 
 export const SubscriptionDetail = ({ subscription }) => {
   return (
@@ -19,7 +22,15 @@ export const SubscriptionDetail = ({ subscription }) => {
         />
       </div>
       <div>
-
+        <SubscriptionDeliverySection
+          subscription={subscription}
+        />
+        <SubscriptionPaymentSection
+          subscription={subscription}
+        />
+        <SubscriptionStatusSection
+          subscription={subscription}
+        />
       </div>
     </div>
   )

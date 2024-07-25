@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Section, SectionContent } from '../../../common/index.js';
 
-import { Pause } from './Pause';
+import { Pause } from '../SubscriptionStatusSection/Pause.jsx';
 import { Process } from './Process';
-import { Resume } from './Resume';
+import { Resume } from '../SubscriptionStatusSection/Resume.jsx';
 import { SetFrequency } from './SetFrequency';
 import { SetNextDelivery } from './SetNextDelivery';
 import { Skip } from './Skip';
@@ -15,15 +15,6 @@ export const SubscriptionActionsSection = ({ subscription }) => {
       <SectionContent>
         <Process subscription={subscription} />
         <Skip subscription={subscription} />
-        {subscription.isPaused ? (
-          <Resume
-            subscription={subscription}
-          />
-        ) : (
-          <Pause
-            subscription={subscription}
-          />
-        )}
         <SetNextDelivery subscription={subscription} />
         <SetFrequency subscription={subscription} />
       </SectionContent>

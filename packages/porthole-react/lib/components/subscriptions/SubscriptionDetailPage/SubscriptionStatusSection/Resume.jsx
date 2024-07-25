@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
-import { useResumeSubscription } from '../../../../hooks';
-import { Banner, Button, Dialog } from '../../../common';
+import { useResumeSubscription } from '../../../../hooks/index.js';
+import {Banner, Button, Dialog, Input} from '../../../common/index.js';
 
 export const Resume = ({ subscription }) => {
   const [open, setOpen] = useState(false);
+  const [nextDeliveryDate, setNextDeliveryDate] = useState(subscription.nextDeliveryAt.slice(0, 10));
 
   const closeDialog = () => {
     setOpen(false);
@@ -21,7 +22,14 @@ export const Resume = ({ subscription }) => {
     }
   });
 
-  const canResumeSubscription = subscription.isPaused;
+  const canResumeSubscription = subscription.canResume;
+
+  const handleResume = () => {
+    const updatedNextDeliveryDate = `${nextDeliveryDate}${subscription.nextDeliveryAt.slice(10)}`;
+    resumeSubscription({
+      nextDeliveryDate: updatedNextDeliveryDate
+    });
+  };
 
   return (
     <>
@@ -29,7 +37,7 @@ export const Resume = ({ subscription }) => {
         disabled={!canResumeSubscription || subscriptionResuming}
         onClick={() => { setOpen(true) }}
       >
-        Resume
+        Resume subscription
       </Button>
 
       <Dialog
@@ -46,7 +54,7 @@ export const Resume = ({ subscription }) => {
             label: 'Yes, resume',
             disabled: subscriptionResuming,
             loading: subscriptionResuming,
-            onClick: resumeSubscription
+            onClick: handleResume
           }
         ]}
         onClose={closeDialog}
@@ -59,6 +67,11 @@ export const Resume = ({ subscription }) => {
         <p>
           Your next order will be processed at the specified time.
         </p>
+        <Input
+          type="date"
+          value={nextDeliveryDate}
+          onChange={e => setNextDeliveryDate(e.target.value)}
+        />
       </Dialog>
     </>
   );

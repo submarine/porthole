@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import { usePauseSubscription } from '../../../../hooks';
-import { Banner, Button, Dialog } from '../../../common';
+import { usePauseSubscription } from '../../../../hooks/index.js';
+import { Banner, Button, Dialog } from '../../../common/index.js';
 
 export const Pause = ({ subscription }) => {
   const [open, setOpen] = useState(false);
@@ -21,7 +21,7 @@ export const Pause = ({ subscription }) => {
     }
   });
 
-  const canPauseSubscription = subscription.isActive;
+  const canPauseSubscription = subscription.canPause;
 
   return (
     <>
@@ -29,7 +29,7 @@ export const Pause = ({ subscription }) => {
         disabled={!canPauseSubscription || subscriptionPausing}
         onClick={() => { setOpen(true) }}
       >
-        Pause
+        Pause subscription
       </Button>
 
       <Dialog

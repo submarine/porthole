@@ -1,3 +1,4 @@
+export * from "./useCancelSubscription";
 export * from "./usePauseSubscription";
 export * from "./useProcessSubscriptionOrder";
 export * from "./useResumeSubscription";

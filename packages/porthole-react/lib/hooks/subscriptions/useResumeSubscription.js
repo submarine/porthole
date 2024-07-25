@@ -11,11 +11,12 @@ export const useResumeSubscription = ({ id, options = {} }) => {
     }
   ] = useMutation(RESUME_SUBSCRIPTION, options);
 
-  const resumeSubscription = () => {
+  const resumeSubscription = ({ nextDeliveryDate }) => {
     subscriptionResume({
       variables: {
         input: {
-          id: `gid://submarine/Subscription/${id}`
+          id: `gid://submarine/Subscription/${id}`,
+          nextDeliveryDate
         }
       }
     });

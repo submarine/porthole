@@ -24,6 +24,14 @@ export class Subscription {
     return true;
   }
 
+  get canPause() {
+    return this.isActive;
+  }
+
+  get canResume() {
+    return this.isPaused;
+  }
+
   get deliveryMethod() {
     if (!this.data.deliveryMethod) return null;
 
