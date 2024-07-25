@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { Table, TableBody, TableHead, TableHeader, TableRow } from '../../../common';
+import {Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow} from '../../../common';
 import { SubscriptionOrderDetailLine } from './SubscriptionOrderDetailLine';
+import {EditSubscriptionOrder} from "./EditSubscriptionOrder.jsx";
 
-export const SubscriptionOrderDetail = ({ subscriptionOrder }) => {
+export const SubscriptionOrderDetail = ({ subscription, subscriptionOrder }) => {
   return (
     <Table>
       <TableHead>
@@ -25,6 +26,16 @@ export const SubscriptionOrderDetail = ({ subscriptionOrder }) => {
           );
         })}
       </TableBody>
+      <TableFooter>
+        <TableRow>
+          <TableCell colSpan="6">
+            <EditSubscriptionOrder
+              subscription={subscription}
+              subscriptionOrder={subscriptionOrder}
+            />
+          </TableCell>
+        </TableRow>
+      </TableFooter>
     </Table>
   );
 }

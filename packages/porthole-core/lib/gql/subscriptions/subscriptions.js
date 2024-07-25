@@ -268,21 +268,7 @@ export const SET_SUBSCRIPTION_SCHEDULE = gql`
   }
 `;
 
-export const UPDATE_DELIVERY_ADDRESS = gql`
-  mutation subscriptionUpdate($input: SubscriptionUpdateInput!) {
-    subscriptionUpdate(input: $input) {
-      subscription {
-        ${SUBSCRIPTION_DETAILS}
-      }
-      userErrors {
-        field
-        message
-      }
-    }
-  }
-`;
-
-export const UPDATE_PAYMENT_METHOD = gql`
+export const UPDATE_SUBSCRIPTION = gql`
   mutation subscriptionUpdate($input: SubscriptionUpdateInput!) {
     subscriptionUpdate(input: $input) {
       subscription {

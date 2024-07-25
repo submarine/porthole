@@ -23,6 +23,7 @@ export const SubscriptionOrderSection = ({ subscription }) => {
       />
       <SectionContent>
         <SubscriptionOrderSectionContent
+          subscription={subscription}
           subscriptionOrder={subscriptionOrder}
           subscriptionOrderLoading={subscriptionOrderLoading}
           subscriptionOrderError={subscriptionOrderError}

@@ -4,7 +4,7 @@ import { SubscriptionOrderError } from './SubscriptionOrderError';
 import { SubscriptionOrderDetail } from './SubscriptionOrderDetail';
 import { SubscriptionOrderLoading } from './SubscriptionOrderLoading';
 
-export const SubscriptionOrderSectionContent = ({ subscriptionOrder, subscriptionOrderLoading, subscriptionOrderError }) => {
+export const SubscriptionOrderSectionContent = ({ subscription, subscriptionOrder, subscriptionOrderLoading, subscriptionOrderError }) => {
   if (!subscriptionOrder || subscriptionOrderLoading) {
     return (
       <SubscriptionOrderLoading />
@@ -21,6 +21,7 @@ export const SubscriptionOrderSectionContent = ({ subscriptionOrder, subscriptio
 
   return (
     <SubscriptionOrderDetail
+      subscription={subscription}
       subscriptionOrder={subscriptionOrder}
     />
   )

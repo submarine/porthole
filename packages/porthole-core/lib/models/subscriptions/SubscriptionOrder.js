@@ -6,7 +6,6 @@ import { SubscriptionOrderLine } from './SubscriptionOrderLine';
 import { SubscriptionPlan } from './SubscriptionPlan';
 
 export class SubscriptionOrder {
-
   constructor(data) {
     this.cursor = data?.cursor;
     this.data = data?.node || data;
@@ -21,6 +20,12 @@ export class SubscriptionOrder {
     if (this.lastProcessedOrder) {
       if (this.lastProcessedOrder.cycleIndex !== this.cycleIndex - 1) return false;
     } else if (this.cycleIndex > 1) return false;
+
+    return true;
+  }
+
+  get canUpdateLines() {
+    if (this.isCancelled) return false;
 
     return true;
   }

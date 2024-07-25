@@ -7,3 +7,4 @@ export * from "./useSkipSubscriptionOrder";
 export * from "./useSubscription";
 export * from "./useSubscriptionCollection";
 export * from "./useSubscriptionOrder";
+export * from "./useUpdateSubscription";

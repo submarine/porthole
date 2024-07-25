@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     mix.default({
-      handler: './tokens.js',
+      handler: './mix.js',
     })
   ]
 })
