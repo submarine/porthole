@@ -1,2 +1,2 @@
-export * from './SubscriptionList';
-export * from './SubscriptionsPage';
+export * from './SubscriptionDetailPage';
+export * from './SubscriptionListPage';

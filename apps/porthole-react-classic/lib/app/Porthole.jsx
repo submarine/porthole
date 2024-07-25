@@ -4,7 +4,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import {
   PresaleList,
   Skeleton,
-  SubscriptionsPage
+  SubscriptionDetailPage,
+  SubscriptionListPage
 } from '@submarine/porthole-react';
 
 const Porthole = () => {
@@ -16,7 +17,11 @@ const Porthole = () => {
       },
       {
         path: "/subscriptions",
-        element: <SubscriptionsPage />
+        element: <SubscriptionListPage />
+      },
+      {
+        path: "/subscriptions/:id",
+        element: <SubscriptionDetailPage />
       }
     ], {
       basename: "/apps/platform/portal"

@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { SubscriptionListItemsEmpty } from './SubscriptionListItemsEmpty';
-import { SubscriptionListItemsItem } from './SubscriptionListItemsItem';
+import { SubscriptionListEmpty } from './SubscriptionListEmpty';
+import { SubscriptionListItem } from './SubscriptionListItem';
 
-export const SubscriptionListItems = ({ subscriptionCollection }) => {
+export const SubscriptionList = ({ subscriptionCollection }) => {
   return (
     <div>
       {subscriptionCollection.isEmpty ? (
-        <SubscriptionListItemsEmpty />
+        <SubscriptionListEmpty />
       ) : (
         subscriptionCollection.items.map(subscription => {
           return (
-            <SubscriptionListItemsItem
+            <SubscriptionListItem
               key={subscription.id}
               subscription={subscription}
             />

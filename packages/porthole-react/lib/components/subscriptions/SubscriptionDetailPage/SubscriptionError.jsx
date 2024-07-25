@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Banner } from '../../common';
+import { Banner } from '../../common/index.js';
 
-export const SubscriptionListError = ({ message }) => {
+export const SubscriptionError = ({ message }) => {
   return (
     <Banner tone="error" title="Error">
       {message}

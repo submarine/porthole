@@ -1,22 +1,10 @@
 import React from 'react';
 
-import { useSubscriptionCollection } from '../../../hooks';
-
 import { SubscriptionListError } from './SubscriptionListError';
-import { SubscriptionListItems } from './SubscriptionListItems.jsx';
+import { SubscriptionList } from './SubscriptionList.jsx';
 import { SubscriptionListLoading } from './SubscriptionListLoading';
 
-export const SubscriptionList = () => {
-  const {
-    subscriptionCollection,
-    subscriptionCollectionLoading,
-    subscriptionCollectionError
-  } = useSubscriptionCollection({
-    variables: {
-      first: 10
-    }
-  });
-
+export const SubscriptionListPageContent = ({ subscriptionCollection, subscriptionCollectionLoading, subscriptionCollectionError }) => {
   if (!subscriptionCollection || subscriptionCollectionLoading) {
     return (
       <SubscriptionListLoading />
@@ -32,7 +20,7 @@ export const SubscriptionList = () => {
   }
 
   return (
-    <SubscriptionListItems
+    <SubscriptionList
       subscriptionCollection={subscriptionCollection}
     />
   )

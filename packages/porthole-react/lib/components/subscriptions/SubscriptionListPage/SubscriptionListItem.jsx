@@ -2,11 +2,12 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-export const SubscriptionListItemsItem = ({ subscription }) => {
+export const SubscriptionListItem = ({ subscription }) => {
   return (
     <div>
+      <h3>{subscription.identifier}</h3>
       <Link to={`/subscriptions/${subscription.id}`}>
-        {subscription.identifier}
+        Manage subscription
       </Link>
     </div>
   )

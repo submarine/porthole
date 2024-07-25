@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Banner } from '../../common';
+import { Banner } from '../../common/index.js';
 
-export const SubscriptionListItemsEmpty = () => {
+export const SubscriptionListEmpty = () => {
   return (
     <Banner title="No subscriptions found.">
       <p>
