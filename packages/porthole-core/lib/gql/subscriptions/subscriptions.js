@@ -1,6 +1,18 @@
 import { gql } from '@apollo/client/core';
 
 export const SUBSCRIPTION_DETAILS = `
+  availableSubscriptionPlans {
+    anchors {
+      id
+      name
+    }
+    frequency {
+      description
+      interval
+      intervalCount
+    }
+    id
+  }
   createdAt
   currency
   customer {
@@ -87,6 +99,7 @@ export const SUBSCRIPTION_DETAILS = `
     id
     nextSubscriptionOrder {
       id
+      expectedBillingAt
       expectedDeliveryAt
     }
     paused

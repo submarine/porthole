@@ -2,7 +2,7 @@ import { useMutation } from '@apollo/client';
 
 import { PROCESS_SUBSCRIPTION_ORDER } from '@submarine/porthole-core';
 
-export const useProcessSubscriptionOrder = ({ id, options }) => {
+export const useProcessSubscriptionOrder = ({ id, options = {} }) => {
   const [
     subscriptionOrderProcess,
     {
