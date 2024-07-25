@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { DialogPanel as HeadlessDialogPanel } from '@headlessui/react';
+
 export const DialogPanel = ({ children, ...props }) => {
   return (
-    <div {...props}>
+    <HeadlessDialogPanel {...props}>
       {children}
-    </div>
+    </HeadlessDialogPanel>
   );
 };

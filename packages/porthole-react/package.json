@@ -19,6 +19,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^2.0.4",
     "@submarine/porthole-core": "*"
   },
   "peerDependencies": {
