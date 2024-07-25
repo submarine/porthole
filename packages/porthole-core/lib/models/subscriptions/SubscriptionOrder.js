@@ -2,6 +2,7 @@
 import { Money } from '../common';
 import { Subscription } from './Subscription';
 import { SubscriptionDeliveryMethod } from './SubscriptionDeliveryMethod';
+import { SubscriptionOrderLine } from './SubscriptionOrderLine';
 import { SubscriptionPlan } from './SubscriptionPlan';
 
 export class SubscriptionOrder {

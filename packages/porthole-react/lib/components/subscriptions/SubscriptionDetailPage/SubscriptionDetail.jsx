@@ -1,9 +1,18 @@
 import React from 'react';
 
+import { SubscriptionOrderSection } from './SubscriptionOrderSection';
+
 export const SubscriptionDetail = ({ subscription }) => {
   return (
-    <p>
-      {subscription.id}
-    </p>
+    <div>
+      <div>
+        <SubscriptionOrderSection
+          subscription={subscription}
+        />
+      </div>
+      <div>
+
+      </div>
+    </div>
   )
 }

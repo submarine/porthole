@@ -1,5 +1,6 @@
 export * from './Banner';
 export * from './Date';
+export * from './Image';
 export * from './Money';
 export * from './Page';
 export * from './PageContent';
