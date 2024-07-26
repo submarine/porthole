@@ -53,6 +53,11 @@ export class Subscription {
   get identifier() {
     return this.data.identifier;
   }
+
+  get imageUrls() {
+    return this.lines.map((line) => line.imageUrl);
+  }
+
   get isActive() {
     return this.status === 'ACTIVE';
   }

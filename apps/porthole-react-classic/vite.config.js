@@ -1,3 +1,4 @@
+import path from 'path';
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import mix from 'vite-plugin-mix'
@@ -6,8 +7,11 @@ import mix from 'vite-plugin-mix'
 export default defineConfig({
   plugins: [
     react(),
-    mix.default({
-      handler: './mix.js',
-    })
+    {
+      ...mix.default({
+        handler: './mix.js',
+      }),
+      apply: 'serve'
+    }
   ]
 })

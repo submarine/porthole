@@ -1,16 +1,18 @@
 import React from "react";
 
+import { Link } from 'react-router-dom';
+
 export const PageHeader = ({ title, breadcrumbs, ...props }) => {
   return (
-    <div {...props}>
+    <header {...props}>
       <h1>{title}</h1>
       {breadcrumbs.map(breadcrumb => {
         return (
-          <a key={breadcrumb.href} href={breadcrumb.href}>
+          <Link key={breadcrumb.href} to={breadcrumb.href}>
             {breadcrumb.title}
-          </a>
+          </Link>
         )
       })}
-    </div>
+    </header>
   );
 };

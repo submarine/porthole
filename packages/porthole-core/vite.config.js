@@ -5,7 +5,6 @@ import mix from 'vite-plugin-mix'
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
-    copyPublicDir: false,
     lib: {
       entry: path.resolve(__dirname, 'src/index.js'),
       fileName: (format) => format === 'iife' ? 'porthole-core.js' : `porthole-core.${format}.js`,
