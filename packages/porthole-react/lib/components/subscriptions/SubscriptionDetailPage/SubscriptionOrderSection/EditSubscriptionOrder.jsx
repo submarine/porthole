@@ -6,6 +6,7 @@ import { EditSubscriptionOrderDialogContent } from './EditSubscriptionOrderDialo
 
 export const EditSubscriptionOrder = ({ subscription, subscriptionOrder }) => {
   const [open, setOpen] = useState(false);
+  const [editableLines, setEditableLines] = useState(subscriptionOrder.lines.map(line => line.toEditableSubscriptionLine()));
 
   const closeDialog = () => {
     setOpen(false);
@@ -25,11 +26,31 @@ export const EditSubscriptionOrder = ({ subscription, subscriptionOrder }) => {
   const canEditSubscriptionOrder = subscriptionOrder?.canUpdateLines && !open;
 
   const handleSubscriptionUpdate = () => {
-    const lines = [];
+    const lines = editableLines.map(editableLine => ({
+      productVariantId: `gid://external/ProductVariant/${editableLine.productVariant.externalId}`,
+      quantity: editableLine.quantity
+    }));
+
     updateSubscription({
       lines
     });
   };
+
+  const addEditableLine = (editableLineToAdd) => {
+    setEditableLines([
+      ...editableLines,
+      editableLineToAdd
+    ]);
+  }
+
+  const removeEditableLine = (editableLineToRemove) => {
+    const index = editableLines.findIndex((editableLine) => editableLine.id === editableLineToRemove.id);
+
+    setEditableLines([
+      ...editableLines.slice(0, index),
+      ...editableLines.slice(index + 1)
+    ]);
+  }
 
   return (
     <>
@@ -65,8 +86,10 @@ export const EditSubscriptionOrder = ({ subscription, subscriptionOrder }) => {
         )}
         {open && (
           <EditSubscriptionOrderDialogContent
-            subscription={subscription}
             subscriptionOrder={subscriptionOrder}
+            editableLines={editableLines}
+            addEditableLine={addEditableLine}
+            removeEditableLine={removeEditableLine}
           />
         )}
       </Dialog>

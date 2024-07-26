@@ -1,17 +1,12 @@
-import { useEffect, useState } from 'react';
-
-import { Product } from '@submarine/porthole-core';
+import { useEffect, useState, useMemo } from 'react';
 
 export const useProductRecommendations = ({ productIds }) => {
-  const [rawRecommendations, setRawRecommendations] = useState([]);
   const [productRecommendations, setProductRecommendations] = useState([]);
   const [productRecommendationsLoading, setProductRecommendationsLoading] = useState(false);
 
   useEffect( () => {
-    setProductRecommendationsLoading(true);
-    const productId = productIds[0];
-
-    const loadRawRecommendations = async () => {
+    const fetchRecommendations = async () => {
+      setProductRecommendationsLoading(true);
       //const response = await fetch(`/recommendations/products.json?product_id=${productId}&intent=complementary`);
       //const recommendations = await response.json();
 
@@ -19,21 +14,14 @@ export const useProductRecommendations = ({ productIds }) => {
       const recommendationData = await response.json();
       const product = recommendationData.product;
 
-      setRawRecommendations([product]);
+      setProductRecommendations([product]);
+      setProductRecommendationsLoading(false);
     };
 
-    loadRawRecommendations();
-  }, [productIds]);
-
-  useEffect(() => {
-    const filteredRecommendations = rawRecommendations.filter(rawRecommendation => {
-      return !productIds.some(productId => productId === rawRecommendation.id);
-    });
-
-    setProductRecommendations(filteredRecommendations);
-
-    setProductRecommendationsLoading(false);
-  }, [rawRecommendations]);
+    let fetchingRecommendations = true;
+    fetchRecommendations();
+    return () => { fetchingRecommendations = false };
+  }, []);
 
   return {
     productRecommendations,

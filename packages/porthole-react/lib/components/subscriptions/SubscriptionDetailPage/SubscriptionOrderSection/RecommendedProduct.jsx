@@ -6,6 +6,7 @@ import {EditableSubscriptionLine, SubscriptionLine} from "@submarine/porthole-co
 export const RecommendedProduct = ({ product, editableLines, addEditableLine }) => {
   const [availableVariants, setAvailableVariants] = useState([]);
   const [selectedVariantId, setSelectedVariantId] = useState(availableVariants[0]?.id);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     const newAvailableVariants = product.variants.filter(variant => {
@@ -58,7 +59,7 @@ export const RecommendedProduct = ({ product, editableLines, addEditableLine }) 
         sku: selectedVariant.sku,
         title: selectedVariant.title
       },
-      quantity: 1
+      quantity
     }), 'ADD'));
   }
 
@@ -93,12 +94,17 @@ export const RecommendedProduct = ({ product, editableLines, addEditableLine }) 
         }} />
       </TableCell>
       <TableCell align="center">
-        <Select>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+        <Select value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value, 10))}>
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
+          <option value={5}>5</option>
+          <option value={6}>6</option>
+          <option value={7}>7</option>
+          <option value={8}>8</option>
+          <option value={9}>9</option>
+          <option value={10}>10</option>
         </Select>
       </TableCell>
       <TableCell align="right">

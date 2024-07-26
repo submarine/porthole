@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import { Button, Image, Money, Select, TableCell, TableRow } from '../../../common';
 
 export const EditableLine = ({ editableLine, removeEditableLine }) => {
+  const [quantity, setQuantity] = useState(editableLine.quantity);
+
+  const handleChangeQuantity = (e) => {
+    const newQuantity = parseInt(e.target.value, 10);
+    setQuantity(newQuantity);
+    editableLine.setQuantity(newQuantity);
+  };
 
   const handleRemove = () => {
     removeEditableLine(editableLine);
@@ -28,12 +35,17 @@ export const EditableLine = ({ editableLine, removeEditableLine }) => {
         <Money money={editableLine.unitPrice} />
       </TableCell>
       <TableCell align="center">
-        <Select value={editableLine.quantity} onChange={e => editableLine.setQuantity(e.target.value)}>
+        <Select value={quantity} onChange={handleChangeQuantity}>
           <option value={1}>1</option>
           <option value={2}>2</option>
           <option value={3}>3</option>
           <option value={4}>4</option>
           <option value={5}>5</option>
+          <option value={6}>6</option>
+          <option value={7}>7</option>
+          <option value={8}>8</option>
+          <option value={9}>9</option>
+          <option value={10}>10</option>
         </Select>
       </TableCell>
       <TableCell align="right">

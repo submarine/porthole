@@ -5,31 +5,13 @@ import { Banner, Button, Dialog, Table, TableBody, TableCell, TableHead, TableHe
 import { EditableLine } from './EditableLine';
 import { RecommendedProduct } from './RecommendedProduct';
 
-export const EditSubscriptionOrderDialogContent = ({ subscription, subscriptionOrder }) => {
-  const [editableLines, setEditableLines] = useState(subscriptionOrder.lines.map(line => line.toEditableSubscriptionLine()));
-
+export const EditSubscriptionOrderDialogContent = ({ subscriptionOrder, editableLines, addEditableLine, removeEditableLine }) => {
   const {
     productRecommendations,
     productRecommendationsLoading
   } = useProductRecommendations({
     productIds: subscriptionOrder.lines.map(line => line.product.externalId)
   });
-
-  const addEditableLine = (editableLineToAdd) => {
-    setEditableLines([
-      ...editableLines,
-      editableLineToAdd
-    ]);
-  }
-
-  const removeEditableLine = (editableLineToRemove) => {
-    const index = editableLines.findIndex((editableLine) => editableLine.id === editableLineToRemove.id);
-
-    setEditableLines([
-      ...editableLines.slice(0, index),
-      ...editableLines.slice(index + 1)
-    ]);
-  }
 
   return (
     <>
