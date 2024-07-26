@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { useUpdateSubscription } from '../../../../hooks';
 import { Banner, Button, Dialog } from '../../../common';
-import {EditSubscriptionOrderDialogContent} from "./EditSubscriptionOrderDialogContent.jsx";
+import { EditSubscriptionOrderDialogContent } from './EditSubscriptionOrderDialogContent';
 
 export const EditSubscriptionOrder = ({ subscription, subscriptionOrder }) => {
   const [open, setOpen] = useState(false);

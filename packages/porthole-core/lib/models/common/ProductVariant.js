@@ -1,4 +1,6 @@
+import { EditableSubscriptionLine } from '../subscriptions/EditableSubscriptionLine';
 import { Product } from './Product';
+import { SubscriptionLine } from '../subscriptions/SubscriptionLine';
 
 export class ProductVariant {
 
@@ -15,7 +17,7 @@ export class ProductVariant {
   }
 
   get id() {
-    return this.gid.replace(/^.*\/ProductVariant\//, '');
+    return this.gid?.replace(/^.*\/ProductVariant\//, '');
   }
 
   get imageUrl() {
@@ -44,6 +46,34 @@ export class ProductVariant {
 
   get title() {
     return this.data.title;
+  }
+
+  get optionsTitle() {
+    return this.data.title.split('-').pop().trim();
+  }
+
+  toEditableSubscriptionLine() {
+    return new EditableSubscriptionLine(
+      new SubscriptionLine({
+        __typename: 'SubscriptionLine',
+        basePrice: {
+          currency: 'AUD',
+          amount: this.price
+        },
+        product: {
+          externalId: this.product.externalId,
+          title: this.product.title
+        },
+        productVariant: {
+          externalId: this.externalId,
+          imageUrl: this.imageUrl,
+          sku: this.sku,
+          title: this.title
+        },
+        quantity: 1
+      }),
+      'ADD'
+    );
   }
 
 }

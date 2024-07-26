@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import { Product } from '@submarine/porthole-core';
+
 export const useProductRecommendations = ({ productIds }) => {
   const [rawRecommendations, setRawRecommendations] = useState([]);
   const [productRecommendations, setProductRecommendations] = useState([]);

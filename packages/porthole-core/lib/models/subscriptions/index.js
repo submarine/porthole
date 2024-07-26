@@ -1,3 +1,4 @@
+export { EditableSubscriptionLine } from './EditableSubscriptionLine';
 export { Subscription } from './Subscription';
 export { SubscriptionAnchor } from './SubscriptionAnchor';
 export { SubscriptionCollection } from './SubscriptionCollection';

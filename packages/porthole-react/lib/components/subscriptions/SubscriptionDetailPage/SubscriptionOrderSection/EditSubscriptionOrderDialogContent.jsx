@@ -6,7 +6,7 @@ import { EditableLine } from './EditableLine';
 import { RecommendedProduct } from './RecommendedProduct';
 
 export const EditSubscriptionOrderDialogContent = ({ subscription, subscriptionOrder }) => {
-  const [editableLines, setEditableLines] = useState(subscriptionOrder.lines.map(line => line));
+  const [editableLines, setEditableLines] = useState(subscriptionOrder.lines.map(line => line.toEditableSubscriptionLine()));
 
   const {
     productRecommendations,
@@ -14,6 +14,22 @@ export const EditSubscriptionOrderDialogContent = ({ subscription, subscriptionO
   } = useProductRecommendations({
     productIds: subscriptionOrder.lines.map(line => line.product.externalId)
   });
+
+  const addEditableLine = (editableLineToAdd) => {
+    setEditableLines([
+      ...editableLines,
+      editableLineToAdd
+    ]);
+  }
+
+  const removeEditableLine = (editableLineToRemove) => {
+    const index = editableLines.findIndex((editableLine) => editableLine.id === editableLineToRemove.id);
+
+    setEditableLines([
+      ...editableLines.slice(0, index),
+      ...editableLines.slice(index + 1)
+    ]);
+  }
 
   return (
     <>
@@ -31,17 +47,15 @@ export const EditSubscriptionOrderDialogContent = ({ subscription, subscriptionO
               <EditableLine
                 key={editableLine.id}
                 editableLine={editableLine}
+                removeEditableLine={removeEditableLine}
               />
             );
           })}
         </TableBody>
-      </Table>
-
-      <Table>
         <TableHead>
           <TableRow>
             <TableHeader colSpan="6">
-              Recommended products
+              Available products
             </TableHeader>
           </TableRow>
         </TableHead>
@@ -52,6 +66,7 @@ export const EditSubscriptionOrderDialogContent = ({ subscription, subscriptionO
                 key={product.id}
                 product={product}
                 editableLines={editableLines}
+                addEditableLine={addEditableLine}
               />
             );
           })}

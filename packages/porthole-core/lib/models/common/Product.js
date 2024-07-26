@@ -1,3 +1,6 @@
+import { ProductVariant } from './ProductVariant';
+import { isEmpty } from '../../utilities';
+
 export class Product {
 
   constructor(data) {
@@ -26,6 +29,14 @@ export class Product {
 
   get title() {
     return this.data.title;
+  }
+
+  get variants() {
+    if (isEmpty(this.data.productVariants)) return [];
+
+    return this.data.productVariants.map(
+      (productVariantData) => new ProductVariant(productVariantData)
+    );
   }
 
   get variantCount() {

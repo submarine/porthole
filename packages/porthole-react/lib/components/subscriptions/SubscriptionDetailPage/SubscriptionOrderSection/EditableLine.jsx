@@ -1,8 +1,13 @@
 import React from 'react';
 
-import { Image, Money, TableCell, TableRow } from '../../../common';
+import { Button, Image, Money, Select, TableCell, TableRow } from '../../../common';
 
-export const EditableLine = ({ editableLine }) => {
+export const EditableLine = ({ editableLine, removeEditableLine }) => {
+
+  const handleRemove = () => {
+    removeEditableLine(editableLine);
+  }
+
   return (
     <TableRow>
       <TableCell align="left">
@@ -13,19 +18,28 @@ export const EditableLine = ({ editableLine }) => {
         />
       </TableCell>
       <TableCell align="left">
-        {editableLine.productVariant.title}
+        {editableLine.product.title}<br />
+        <small>{editableLine.productVariant.sku}</small>
+      </TableCell>
+      <TableCell align="left">
+        {editableLine.productVariant.optionsTitle}
       </TableCell>
       <TableCell align="center">
-        {editableLine.productVariant.sku}
+        <Money money={editableLine.unitPrice} />
       </TableCell>
       <TableCell align="center">
-        <Money money={editableLine.unitPriceAfterDiscounts} />
-      </TableCell>
-      <TableCell align="center">
-        {editableLine.quantity}
+        <Select value={editableLine.quantity} onChange={e => editableLine.setQuantity(e.target.value)}>
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
+          <option value={5}>5</option>
+        </Select>
       </TableCell>
       <TableCell align="right">
-        <Money money={editableLine.linePriceAfterDiscounts} />
+        <Button onClick={handleRemove}>
+          Remove
+        </Button>
       </TableCell>
     </TableRow>
   )

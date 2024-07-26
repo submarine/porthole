@@ -1,4 +1,5 @@
 import { Money, Product, ProductVariant } from '../common';
+import {EditableSubscriptionLine} from "./EditableSubscriptionLine.js";
 
 export class SubscriptionOrderLine {
   constructor(data) {
@@ -52,4 +53,11 @@ export class SubscriptionOrderLine {
   get linePriceAfterDiscounts() {
     return new Money(this.data.financials.linePriceAfterDiscounts);
   }
+
+  toEditableSubscriptionLine() {
+    return new EditableSubscriptionLine(
+      this
+    );
+  }
+
 }

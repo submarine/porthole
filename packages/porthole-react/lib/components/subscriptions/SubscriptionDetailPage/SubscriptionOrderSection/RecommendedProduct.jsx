@@ -1,28 +1,66 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 
 import { Image, Money, TableCell, TableRow, Select, Button } from '../../../common';
+import {EditableSubscriptionLine, SubscriptionLine} from "@submarine/porthole-core";
 
-export const RecommendedProduct = ({ product, editableLines }) => {
-  const availableVariants = product.variants.filter(variant => {
-    return !editableLines.some(editableLine => {
-      console.log('comparing', editableLine.productVariant.externalId, variant.id);
-      return parseInt(editableLine.productVariant.externalId, 10) === variant.id;
+export const RecommendedProduct = ({ product, editableLines, addEditableLine }) => {
+  const [availableVariants, setAvailableVariants] = useState([]);
+  const [selectedVariantId, setSelectedVariantId] = useState(availableVariants[0]?.id);
+
+  useEffect(() => {
+    const newAvailableVariants = product.variants.filter(variant => {
+      return !editableLines.some(editableLine => {
+        return parseInt(editableLine.productVariant.externalId, 10) === variant.id;
+      });
     });
-  });
 
-  if (!availableVariants.length) {
+    setAvailableVariants(newAvailableVariants);
+  }, [product, editableLines]);
+
+  useEffect(() => {
+    const selectedVariantIsAvailable = availableVariants.some(availableVariant => availableVariant.id === selectedVariantId);
+
+    if (!selectedVariantIsAvailable) {
+      setSelectedVariantId(availableVariants[0]?.id);
+    }
+  }, [availableVariants]);
+
+  if (!selectedVariantId || !availableVariants.length) {
     return null;
   }
-
-  const [selectedVariantId, setSelectedVariantId] = useState(availableVariants[0].id);
 
   const selectedVariant = product.variants.find(variant => {
     return variant.id === selectedVariantId;
   });
 
   const selectedVariantImage = product.images.find(image => {
-    return image.variant_ids.includes(selectedVariant.id);
+    return image.variant_ids.includes(selectedVariantId);
   }) || product.image;
+
+  const handleAdd = () => {
+    addEditableLine(new EditableSubscriptionLine(new SubscriptionLine({
+      __typename: 'SubscriptionLine',
+      unitPrice: {
+        currency: 'AUD',
+        amount: selectedVariant.price
+      },
+      unitPriceAfterDiscounts: {
+        currency: 'AUD',
+        amount: selectedVariant.price
+      },
+      product: {
+        externalId: product.id,
+        title: product.title
+      },
+      productVariant: {
+        externalId: selectedVariant.id,
+        imageUrl: selectedVariantImage?.src,
+        sku: selectedVariant.sku,
+        title: selectedVariant.title
+      },
+      quantity: 1
+    }), 'ADD'));
+  }
 
   return (
     <TableRow>
@@ -34,13 +72,14 @@ export const RecommendedProduct = ({ product, editableLines }) => {
         />
       </TableCell>
       <TableCell align="left">
-        {product.title}
+        {product.title}<br />
+        <small>{selectedVariant.sku}</small>
       </TableCell>
       <TableCell align="center">
         <Select value={selectedVariantId} onChange={e => setSelectedVariantId(parseInt(e.target.value, 10))}>
           {availableVariants.map(availableVariant => {
             return (
-              <option value={availableVariant.id}>
+              <option key={availableVariant.id} value={availableVariant.id}>
                 {availableVariant.title}
               </option>
             )
@@ -63,7 +102,9 @@ export const RecommendedProduct = ({ product, editableLines }) => {
         </Select>
       </TableCell>
       <TableCell align="right">
-        <Button>Add</Button>
+        <Button onClick={handleAdd}>
+          Add
+        </Button>
       </TableCell>
     </TableRow>
   )

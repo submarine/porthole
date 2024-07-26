@@ -1,3 +1,4 @@
+import { EditableSubscriptionLine } from './EditableSubscriptionLine';
 import { Money } from '../common/Money';
 import { Product } from '../common/Product';
 import { ProductVariant } from '../common/ProductVariant';
@@ -10,6 +11,10 @@ export class SubscriptionLine {
 
   get basePrice() {
     return new Money(this.data.basePrice);
+  }
+
+  get unitPrice() {
+    return new Money(this.data.unitPrice);
   }
 
   get gid() {
@@ -34,6 +39,12 @@ export class SubscriptionLine {
 
   get quantity() {
     return this.data.quantity;
+  }
+
+  toEditableSubscriptionLine() {
+    return new EditableSubscriptionLine(
+      this
+    );
   }
 
 }
