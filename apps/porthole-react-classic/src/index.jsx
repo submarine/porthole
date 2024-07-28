@@ -7,6 +7,8 @@ import { ConfigurationContext, ContextContext, ThemeContext, parseJsonScript } f
 
 import Porthole from '../lib/app/Porthole';
 
+import { buildThemeContext } from '../lib/helpers';
+
 // build configuration context
 const configurationContext = parseJsonScript(document, 'porthole-configuration');
 
@@ -14,7 +16,10 @@ const configurationContext = parseJsonScript(document, 'porthole-configuration')
 const contextContext = parseJsonScript(document, 'porthole-context');
 
 // build theme context
-const themeContext = parseJsonScript(document, 'porthole-theme');
+const themeContext = buildThemeContext(
+  configurationContext,
+  parseJsonScript(document, 'porthole-theme')
+);
 
 // render application into root component
 ReactDOM.createRoot(document.getElementById('porthole-root')).render(

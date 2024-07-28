@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 import { ThemeContext } from './ThemeContext';
 import { isObject } from '../utilities';
 
-export const useThemedComponent = (id, props) => {
+export const useThemedComponent = (id, props = {}) => {
   const theme = useContext(ThemeContext);
 
   const themeClasses = theme[id]?.classes;

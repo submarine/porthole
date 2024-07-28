@@ -24,4 +24,5 @@ export * from './TableFooter';
 export * from './TableHead';
 export * from './TableHeader';
 export * from './TableRow';
+export * from './Text';
 export * from './Time';

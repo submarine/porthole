@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { Date, Image, TableRow, TableCell, Money } from "../../common";
 
 export const SubscriptionListItem = ({ subscription }) => {
+  const subscriptionItemCount = subscription.lines.reduce((sum, line) => sum + line.quantity, 0);
+
   return (
     <TableRow>
       <TableCell>
@@ -21,7 +23,7 @@ export const SubscriptionListItem = ({ subscription }) => {
           {subscription.identifier}
 
         </Link><br />
-        <small>{subscription.lines.length} item{subscription.lines.length === 1 ? '' : 's'}</small>
+        <small>{subscriptionItemCount} item{subscriptionItemCount === 1 ? '' : 's'}</small>
       </TableCell>
       <TableCell>
         {subscription.subscriptionPlan.frequency.title}

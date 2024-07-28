@@ -1,10 +1,13 @@
 import React from 'react';
 
 import { Button } from '../Button';
+import { useThemedComponent } from '../../../theme';
 
 export const DialogActions = ({ actions, ...props }) => {
+  const { className, style } = useThemedComponent('DialogActions');
+
   return (
-    <div {...props}>
+    <div className={className} style={style} {...props}>
       {actions.map(action => {
         return (
           <Button

@@ -1,0 +1,12 @@
+{
+  "Page": {
+    "classes": {
+      "base": "customer account"
+    }
+  },
+  "Table": {
+    "classes": {
+      "base": "order-history"
+    }
+  }
+}

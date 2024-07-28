@@ -1,8 +1,12 @@
 import React from "react";
 
-export const Address = ({ address, ...props }) => {
+import { useThemedComponent } from '../../theme';
+
+export const Address = ({ address }) => {
+  const { className, style } = useThemedComponent('Address');
+
   return (
-    <address {...props}>
+    <address className={className} style={style}>
       {address.fullName}<br />
       {address.parse().map((line, index) => (
         // eslint-disable-next-line react/no-array-index-key

@@ -14,7 +14,8 @@
     "@submarine/porthole-react": "*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.23.1"
+    "react-router-dom": "^6.23.1",
+    "ts-deepmerge": "^7.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

@@ -1,8 +1,12 @@
-import React from "react";
+import React from 'react';
+
+import { useThemedComponent } from '../../theme';
 
 export const TableRow = ({ children, ...props }) => {
+  const { className, style } = useThemedComponent('TableRow', props);
+
   return (
-    <tr {...props}>
+    <tr className={className} style={style} role="row" {...props}>
       {children}
     </tr>
   );
