@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.0.4",
-    "@submarine/porthole-core": "*"
+    "@submarine/porthole-core": "*",
+    "clsx": "^2.1.1"
   },
   "peerDependencies": {
     "react": "^18.0.0",
