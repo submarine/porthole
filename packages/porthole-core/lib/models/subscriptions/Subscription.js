@@ -1,6 +1,7 @@
 import { PaymentMethod } from '../common/PaymentMethod';
 import { SubscriptionAnchor } from './SubscriptionAnchor';
 import { SubscriptionDeliveryMethod } from "./SubscriptionDeliveryMethod";
+import { SubscriptionEvent } from "./SubscriptionEvent";
 import { SubscriptionLine } from "./SubscriptionLine";
 import { SubscriptionOrder } from './SubscriptionOrder';
 import { SubscriptionPlan } from './SubscriptionPlan';
@@ -18,6 +19,16 @@ export class Subscription {
     return this.data.availableSubscriptionPlans.map((plan) => new SubscriptionPlan(plan));
   }
 
+  get cancelledAt() {
+    return this.cancelEvent?.createdAt;
+  }
+
+  get cancelEvent() {
+    if (!this.data.cancelEvent) return null;
+
+    return new SubscriptionEvent(this.data.cancelEvent);
+  }
+
   get canCancel() {
     if (this.isCancelled) return false;
 
@@ -30,6 +41,13 @@ export class Subscription {
 
   get canResume() {
     return this.isPaused;
+  }
+
+  get canUpdatePaymentMethod() {
+    if (this.isCancelled) return false;
+    if (this.isExpired) return false;
+
+    return true;
   }
 
   get deliveryMethod() {
@@ -98,6 +116,16 @@ export class Subscription {
     if (!this.data.nextScheduledOrder) return null;
 
     return new SubscriptionOrder(this.data.nextScheduledOrder);
+  }
+
+  get pausedAt() {
+    return this.pauseEvent?.createdAt;
+  }
+
+  get pauseEvent() {
+    if (!this.data.pauseEvent) return null;
+
+    return new SubscriptionEvent(this.data.pauseEvent);
   }
 
   get paymentMethod() {

@@ -24,7 +24,7 @@ export const Skip = ({ subscription }) => {
     }
   });
 
-  const canSkipSubscriptionOrder = subscription.isActive && nextScheduledOrder && nextScheduledOrder.isScheduled;
+  const canSkipSubscriptionOrder = subscription.isActive && nextScheduledOrder && nextScheduledOrder?.isScheduled;
 
   return (
     <>
@@ -60,10 +60,10 @@ export const Skip = ({ subscription }) => {
           </Banner>
         )}
         <p>
-          Would you like to skip your next order, scheduled to be processed on <Date dateTime={nextScheduledOrder.expectedBillingAt} /> at <Time dateTime={nextScheduledOrder.expectedBillingAt} />?
+          Would you like to skip your next order, scheduled to be processed on <Date dateTime={nextScheduledOrder?.expectedBillingAt} /> at <Time dateTime={nextScheduledOrder?.expectedBillingAt} />?
         </p>
         <p>
-          Your next order after that is scheduled to be processed on <Date dateTime={nextScheduledOrder.nextSubscriptionOrder.expectedBillingAt} /> at <Time dateTime={nextScheduledOrder.nextSubscriptionOrder.expectedBillingAt} />.
+          Your next order after that is scheduled to be processed on <Date dateTime={nextScheduledOrder?.nextSubscriptionOrder.expectedBillingAt} /> at <Time dateTime={nextScheduledOrder?.nextSubscriptionOrder?.expectedBillingAt} />.
         </p>
       </Dialog>
     </>

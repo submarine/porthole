@@ -19,11 +19,11 @@ export const SubscriptionDetailPage = () => {
   return (
     <Page>
       <PageHeader
-        title={`Subscription ${subscription ? subscription.identifier : '...'}`}
+        title="Account"
         breadcrumbs={[
           {
             href: '/subscriptions',
-            title: 'Back to subscriptions'
+            title: 'Return to Subscriptions'
           }
         ]}
       />

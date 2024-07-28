@@ -22,7 +22,8 @@ export const SubscriptionListPage = () => {
         title="Account"
         breadcrumbs={[
           {
-            href: 'https://nutrabalance.co/account',
+            external: true,
+            href: '/account',
             title: 'Return to Account details'
           }
         ]}

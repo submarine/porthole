@@ -2,11 +2,38 @@
   "Page": {
     "classes": {
       "base": "customer account"
+    },
+    "styles": {
+      "base": {
+        "paddingTop": "36px",
+        "paddingBottom": "36px"
+      }
+    }
+  },
+  "PageHeader": {
+    "styles": {
+      "base": {
+        "marginBottom": "5rem"
+      }
     }
   },
   "Table": {
     "classes": {
       "base": "order-history"
+    }
+  },
+  "TableCell": {
+    "styles": {
+      "base": {
+        "verticalAlign": "middle"
+      }
+    }
+  },
+  "Text": {
+    "classes": {
+      "as": {
+        "h1": "customer__title"
+      }
     }
   }
 }

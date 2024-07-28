@@ -2,13 +2,17 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { Date, Image, TableRow, TableCell, Money } from "../../common";
+import { Badge, Date, Image, TableRow, TableCell, Money } from "../../common";
+import { getToneFromStatus } from '../../../utilities';
 
 export const SubscriptionListItem = ({ subscription }) => {
-  const subscriptionItemCount = subscription.lines.reduce((sum, line) => sum + line.quantity, 0);
-
   return (
     <TableRow>
+      <TableCell>
+        <Link to={`/subscriptions/${subscription.id}`}>
+          {subscription.identifier}
+        </Link>
+      </TableCell>
       <TableCell>
         <Link to={`/subscriptions/${subscription.id}`}>
           <Image
@@ -17,13 +21,6 @@ export const SubscriptionListItem = ({ subscription }) => {
             width={64}
           />
         </Link>
-      </TableCell>
-      <TableCell>
-        <Link to={`/subscriptions/${subscription.id}`}>
-          {subscription.identifier}
-
-        </Link><br />
-        <small>{subscriptionItemCount} item{subscriptionItemCount === 1 ? '' : 's'}</small>
       </TableCell>
       <TableCell>
         {subscription.subscriptionPlan.frequency.title}
@@ -38,7 +35,9 @@ export const SubscriptionListItem = ({ subscription }) => {
         )}
       </TableCell>
       <TableCell>
-        {subscription.status}
+        <Badge tone={getToneFromStatus(subscription.status)}>
+          {subscription.status}
+        </Badge>
       </TableCell>
     </TableRow>
   )

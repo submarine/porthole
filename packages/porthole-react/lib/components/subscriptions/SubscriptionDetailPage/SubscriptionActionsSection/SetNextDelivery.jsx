@@ -6,7 +6,7 @@ import { Banner, Button, Dialog, Input } from '../../../common';
 
 export const SetNextDelivery = ({ subscription }) => {
   const [open, setOpen] = useState(false);
-  const [nextDeliveryDate, setNextDeliveryDate] = useState(subscription.nextDeliveryAt.slice(0, 10));
+  const [nextDeliveryDate, setNextDeliveryDate] = useState(subscription.nextDeliveryAt?.slice(0, 10));
 
   const closeDialog = () => {
     setOpen(false);
@@ -26,7 +26,7 @@ export const SetNextDelivery = ({ subscription }) => {
   const canSetSubscriptionSchedule = !subscription.isCancelled;
 
   const handleSetSubscriptionSchedule = () => {
-    const updatedNextDeliveryAt = `${nextDeliveryDate}${subscription.nextDeliveryAt.slice(10)}`;
+    const updatedNextDeliveryAt = `${nextDeliveryDate}${subscription.nextDeliveryAt?.slice(10)}`;
     setSubscriptionSchedule({
       nextDeliveryAt: updatedNextDeliveryAt,
       subscriptionAnchorId: subscription.subscriptionAnchor.gid,

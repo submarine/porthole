@@ -13,6 +13,11 @@ export const SUBSCRIPTION_DETAILS = `
     }
     id
   }
+  cancelEvent {
+    action
+    createdAt
+    description
+  }
   createdAt
   currency
   customer {
@@ -118,6 +123,11 @@ export const SUBSCRIPTION_DETAILS = `
       description
     }
     id
+  }
+  pauseEvent {
+    action
+    createdAt
+    description
   }
   pricingBehaviour {
     basePricePolicy

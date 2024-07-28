@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Section, SectionContent, SectionHeader } from '../../../common';
+import { InlineStack, Section, SectionContent, SectionHeader } from '../../../common';
 
 import { Cancel } from './Cancel';
 import { Pause } from './Pause';
@@ -13,9 +13,11 @@ export const SubscriptionStatusSection = ({ subscription }) => {
         title="Manage subscription"
       />
       <SectionContent>
-        {subscription.canPause && <Pause subscription={subscription} />}
-        {subscription.canResume && <Resume subscription={subscription} />}
-        {subscription.canCancel && <Cancel subscription={subscription} />}
+        <InlineStack wrap={true}>
+          {subscription.canPause && <Pause subscription={subscription} />}
+          {subscription.canResume && <Resume subscription={subscription} />}
+          {subscription.canCancel && <Cancel subscription={subscription} />}
+        </InlineStack>
       </SectionContent>
     </Section>
   );

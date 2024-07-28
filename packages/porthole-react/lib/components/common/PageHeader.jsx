@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 
+import { Link } from './Link';
+import { Text } from './Text';
 import { useThemedComponent } from '../../theme';
 
 export const PageHeader = ({ title, breadcrumbs, ...props }) => {
@@ -8,10 +9,10 @@ export const PageHeader = ({ title, breadcrumbs, ...props }) => {
 
   return (
     <header className={className} style={style} {...props}>
-      <h1>{title}</h1>
+      <Text as="h1">{title}</Text>
       {breadcrumbs.map(breadcrumb => {
         return (
-          <Link key={breadcrumb.href} to={breadcrumb.href}>
+          <Link key={breadcrumb.title} href={breadcrumb.href} external={breadcrumb.external}>
             {breadcrumb.title}
           </Link>
         )

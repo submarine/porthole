@@ -17,9 +17,9 @@ export const SubscriptionDetail = ({ subscription }) => {
         <SubscriptionActionsSection
           subscription={subscription}
         />
-        <SubscriptionOrderSection
+        {!subscription.isCancelled && (<SubscriptionOrderSection
           subscription={subscription}
-        />
+        />)}
       </div>
       <div>
         <SubscriptionDeliverySection
@@ -28,9 +28,9 @@ export const SubscriptionDetail = ({ subscription }) => {
         <SubscriptionPaymentSection
           subscription={subscription}
         />
-        <SubscriptionStatusSection
+        {!subscription.isCancelled && (<SubscriptionStatusSection
           subscription={subscription}
-        />
+        />)}
       </div>
     </div>
   )

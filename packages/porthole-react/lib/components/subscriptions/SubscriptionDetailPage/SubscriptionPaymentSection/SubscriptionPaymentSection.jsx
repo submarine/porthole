@@ -11,7 +11,7 @@ export const SubscriptionPaymentSection = ({ subscription }) => {
       />
       <SectionContent>
         <PaymentMethod paymentMethod={subscription.paymentMethod} />
-        <UpdatePaymentMethod paymentMethod={subscription.paymentMethod} />
+        {subscription.canUpdatePaymentMethod && <UpdatePaymentMethod paymentMethod={subscription.paymentMethod} />}
       </SectionContent>
     </Section>
   );
