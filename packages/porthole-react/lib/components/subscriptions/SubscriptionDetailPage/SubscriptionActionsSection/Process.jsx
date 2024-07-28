@@ -31,6 +31,7 @@ export const Process = ({ subscription }) => {
       <Button
         disabled={!canProcessSubscriptionOrder || subscriptionOrderProcessing}
         onClick={() => { setOpen(true) }}
+        size="micro"
       >
         Process now
       </Button>
@@ -42,11 +43,14 @@ export const Process = ({ subscription }) => {
         actions={[
           {
             label: 'Cancel',
+            size: 'micro',
+            variant: 'secondary',
             disabled: subscriptionOrderProcessing,
-            onClick: closeDialog
+            onClick: closeDialog,
           },
           {
             label: 'Yes, process now',
+            size: 'micro',
             disabled: subscriptionOrderProcessing,
             loading: subscriptionOrderProcessing,
             onClick: processSubscriptionOrder

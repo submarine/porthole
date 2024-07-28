@@ -1,13 +1,11 @@
 import React from 'react';
 
 import { Button } from '../Button';
-import { useThemedComponent } from '../../../theme';
+import { InlineStack } from '../InlineStack';
 
 export const DialogActions = ({ actions, ...props }) => {
-  const { className, style } = useThemedComponent('DialogActions');
-
   return (
-    <div className={className} style={style} {...props}>
+    <InlineStack wrap={true}>
       {actions.map(action => {
         return (
           <Button
@@ -15,11 +13,13 @@ export const DialogActions = ({ actions, ...props }) => {
             disabled={action.disabled}
             loading={action.loading}
             onClick={action.onClick}
+            variant={action.variant}
+            size="micro"
           >
             {action.label}
           </Button>
         )
       })}
-    </div>
+    </InlineStack>
   );
 };

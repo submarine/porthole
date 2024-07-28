@@ -1,4 +1,76 @@
 {
+  "Badge": {
+    "styles": {
+      "base": {
+        "textTransform": "capitalize"
+      }
+    }
+  },
+  "Button": {
+    "classes": {
+      "base": "button",
+      "loading": "loading",
+      "size": {
+        "micro": "button--small"
+      },
+      "variant": {
+        "secondary": "button--secondary",
+        "tertiary": "button--tertiary"
+      }
+    },
+    "styles": {
+      "base": {
+        "margin": "0"
+      }
+    }
+  },
+  "Dialog": {
+    "classes": {
+      "base": "quick-add-modal"
+    },
+    "styles": {
+      "open": {
+        "opacity": "1",
+        "visibility": "visible",
+        "zIndex": "101"
+      }
+    }
+  },
+  "DialogActions": {
+    "styles": {
+      "base": {
+        "marginTop": "2.5rem"
+      }
+    }
+  },
+  "DialogPanel": {
+    "classes": {
+      "base": "quick-add-modal__content"
+    },
+    "styles": {
+      "base": {
+        "padding": "2.5rem",
+        "overflowY": "auto"
+      }
+    }
+  },
+  "InlineStack": {
+    "styles": {
+      "base": {
+        "display": "flex",
+        "flexWrap": "nowrap",
+        "gap": "8px"
+      },
+      "wrap": {
+        "flexWrap": "wrap"
+      },
+      "align": {
+        "end": {
+          "alignItems": "end"
+        }
+      }
+    }
+  },
   "Page": {
     "classes": {
       "base": "customer account"

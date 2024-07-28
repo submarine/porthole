@@ -42,6 +42,8 @@ export const SetFrequency = ({ subscription }) => {
       <Button
         disabled={!canSetSubscriptionSchedule || settingSubscriptionSchedule}
         onClick={() => setOpen(true)}
+        variant="secondary"
+        size="micro"
       >
         Change frequency
       </Button>

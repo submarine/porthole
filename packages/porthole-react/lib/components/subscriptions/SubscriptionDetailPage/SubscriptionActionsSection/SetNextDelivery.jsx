@@ -39,6 +39,8 @@ export const SetNextDelivery = ({ subscription }) => {
       <Button
         disabled={!canSetSubscriptionSchedule || settingSubscriptionSchedule}
         onClick={() => setOpen(true)}
+        variant="secondary"
+        size="micro"
       >
         Change next order date
       </Button>

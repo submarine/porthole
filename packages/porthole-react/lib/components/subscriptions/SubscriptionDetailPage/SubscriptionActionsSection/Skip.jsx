@@ -31,6 +31,8 @@ export const Skip = ({ subscription }) => {
       <Button
         disabled={!canSkipSubscriptionOrder || subscriptionOrderSkipping}
         onClick={() => { setOpen(true) }}
+        variant="secondary"
+        size="micro"
       >
         Skip next order
       </Button>

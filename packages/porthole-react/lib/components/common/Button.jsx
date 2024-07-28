@@ -3,9 +3,9 @@ import { Button as HeadlessButton } from '@headlessui/react'
 
 import { useThemedComponent } from '../../theme';
 
-export const Button = ({ disabled, loading, variant, tone, children, ...props }) => {
+export const Button = ({ disabled, loading, variant, tone, size, children, ...props }) => {
   const { className, style } = useThemedComponent('Button', {
-    disabled, loading, variant, tone
+    disabled, loading, variant, tone, size
   });
 
   return (
