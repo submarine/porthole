@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useSubscriptionCollection } from '../../../hooks';
 
-import { Page, PageHeader, PageContent } from '../../common';
+import { Page, PageHeader, PageContent, Section, SectionHeader, SectionContent } from '../../common';
 import { SubscriptionListPageContent } from './SubscriptionListPageContent';
 
 export const SubscriptionListPage = () => {
@@ -19,7 +19,7 @@ export const SubscriptionListPage = () => {
   return (
     <Page>
       <PageHeader
-        title="Subscriptions"
+        title="Account"
         breadcrumbs={[
           {
             href: 'https://nutrabalance.co/account',
@@ -28,11 +28,18 @@ export const SubscriptionListPage = () => {
         ]}
       />
       <PageContent>
-        <SubscriptionListPageContent
-          subscriptionCollection={subscriptionCollection}
-          subscriptionCollectionLoading={subscriptionCollectionLoading}
-          subscriptionCollectionError={subscriptionCollectionError}
-        />
+        <Section>
+          <SectionHeader
+            title="Subscriptions"
+          />
+          <SectionContent>
+            <SubscriptionListPageContent
+              subscriptionCollection={subscriptionCollection}
+              subscriptionCollectionLoading={subscriptionCollectionLoading}
+              subscriptionCollectionError={subscriptionCollectionError}
+            />
+          </SectionContent>
+        </Section>
       </PageContent>
     </Page>
   );

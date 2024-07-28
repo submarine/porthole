@@ -11,17 +11,13 @@ export const useThemedComponent = (id, props = {}) => {
   const themeStyles = theme[id]?.styles;
 
   return {
-    className: buildClassName(themeClasses, props),
-    style: buildStyle(themeStyles, props)
+    className: buildClassName(id, themeClasses, props),
+    style: buildStyle(id, themeStyles, props)
   }
 };
 
-const buildClassName = (themeClasses, props) => {
-  if (themeClasses === undefined) {
-    return null;
-  }
-
-  const classNames = Object.entries(themeClasses).reduce((acc, [key, value]) => {
+const buildClassName = (id, themeClasses, props) => {
+  const classNames = Object.entries(themeClasses || {}).reduce((acc, [key, value]) => {
     if (isObject(value)) {
       return Object.assign(acc, Object.entries(value).reduce((innerAcc, [innerKey, innerValue]) => {
         return Object.assign(innerAcc, {
@@ -33,12 +29,14 @@ const buildClassName = (themeClasses, props) => {
     return Object.assign(acc, {
       [value]: (key === 'base') || !!props[key]
     });
-  }, {});
+  }, {
+    [`Porthole${id}`]: true
+  });
 
   return clsx(classNames);
 };
 
-const buildStyle = (themeStyles, props) => {
+const buildStyle = (id, themeStyles, props) => {
   if (themeStyles === undefined) {
     return null;
   }
