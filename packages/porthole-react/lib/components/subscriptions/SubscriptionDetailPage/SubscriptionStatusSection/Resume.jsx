@@ -25,9 +25,9 @@ export const Resume = ({ subscription }) => {
   const canResumeSubscription = subscription.canResume;
 
   const handleResume = () => {
-    const updatedNextDeliveryDate = `${nextDeliveryDate}${subscription.nextDeliveryAt.slice(10)}`;
+    const updatedNextDeliveryAt = `${nextDeliveryDate}${subscription.nextDeliveryAt.slice(10)}`;
     resumeSubscription({
-      nextDeliveryDate: updatedNextDeliveryDate
+      nextDeliveryAt: updatedNextDeliveryAt
     });
   };
 
