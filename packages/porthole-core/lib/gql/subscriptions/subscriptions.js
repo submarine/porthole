@@ -133,7 +133,6 @@ export const SUBSCRIPTION_DETAILS = `
     basePricePolicy
   }
   processedSubscriptionOrdersCount
-  source
   status
   subscriptionAnchor {
     description
