@@ -2,6 +2,8 @@ import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import {
+  MembershipDetailPage,
+  MembershipListPage,
   PresaleList,
   Skeleton,
   SubscriptionDetailPage,
@@ -11,6 +13,14 @@ import {
 const Porthole = () => {
   const router = createBrowserRouter(
     [
+      {
+        path: "/memberships",
+        element: <MembershipListPage />
+      },
+      {
+        path: "/memberships/:id",
+        element: <MembershipDetailPage />
+      },
       {
         path: "/presales",
         element: <PresaleList />

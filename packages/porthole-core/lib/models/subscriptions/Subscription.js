@@ -19,6 +19,10 @@ export class Subscription {
     return this.data.availableSubscriptionPlans.map((plan) => new SubscriptionPlan(plan));
   }
 
+  get cancelAt() {
+    return this.data.cancelAt;
+  }
+
   get cancelledAt() {
     return this.cancelEvent?.createdAt;
   }
@@ -41,6 +45,10 @@ export class Subscription {
 
   get canResume() {
     return this.isPaused;
+  }
+
+  get canRevertScheduledCancellation() {
+    return this.isPendingCancellation;
   }
 
   get canUpdatePaymentMethod() {
@@ -94,6 +102,10 @@ export class Subscription {
 
   get isPaused() {
     return this.status === 'PAUSED';
+  }
+
+  get isPendingCancellation() {
+    return !!this.data.pendingCancellation;
   }
 
   get isStale() {

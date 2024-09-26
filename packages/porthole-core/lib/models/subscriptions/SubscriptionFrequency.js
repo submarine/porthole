@@ -30,10 +30,10 @@ export class SubscriptionFrequency {
 
   get title() {
     if (this.intervalCount === 1) {
-      return `Delivered every ${this.interval.toLowerCase()}`;
+      return `Every ${this.interval.toLowerCase()}`;
     }
 
-    return `Delivered every ${this.intervalCount} ${this.interval.toLowerCase()}s`;
+    return `Every ${this.intervalCount} ${this.interval.toLowerCase()}s`;
   }
 
 }

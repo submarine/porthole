@@ -2,6 +2,7 @@ export * from "./useCancelSubscription";
 export * from "./usePauseSubscription";
 export * from "./useProcessSubscriptionOrder";
 export * from "./useResumeSubscription";
+export * from "./useRevertScheduledSubscriptionCancellation";
 export * from "./useSetSubscriptionSchedule";
 export * from "./useSkipSubscriptionOrder";
 export * from "./useSubscription";

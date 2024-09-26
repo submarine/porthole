@@ -11,11 +11,12 @@ export const useCancelSubscription = ({ id, options = {} }) => {
     }
   ] = useMutation(CANCEL_SUBSCRIPTION, options);
 
-  const cancelSubscription = () => {
+  const cancelSubscription = ({ cancelAt }) => {
     subscriptionCancel({
       variables: {
         input: {
-          id: `gid://submarine/Subscription/${id}`
+          id: `gid://submarine/Subscription/${id}`,
+          cancelAt
         }
       }
     });

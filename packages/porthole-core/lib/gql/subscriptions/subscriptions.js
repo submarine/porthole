@@ -13,6 +13,7 @@ export const SUBSCRIPTION_DETAILS = `
     }
     id
   }
+  cancelAt
   cancelEvent {
     action
     createdAt
@@ -129,6 +130,7 @@ export const SUBSCRIPTION_DETAILS = `
     createdAt
     description
   }
+  pendingCancellation
   pricingBehaviour {
     basePricePolicy
   }
@@ -252,6 +254,20 @@ export const RESTORE_SUBSCRIPTION = gql`
 export const RESUME_SUBSCRIPTION = gql`
   mutation subscriptionResume($input: SubscriptionResumeInput!) {
     subscriptionResume(input: $input) {
+      subscription {
+        ${SUBSCRIPTION_DETAILS}
+      }
+      userErrors {
+        field
+        message
+      }
+    }
+  }
+`;
+
+export const REVERT_SCHEDULED_SUBSCRIPTION_CANCELLATION = gql`
+  mutation subscriptionRevertScheduledCancellation($input: SubscriptionRevertScheduledCancellationInput!) {
+    subscriptionRevertScheduledCancellation(input: $input) {
       subscription {
         ${SUBSCRIPTION_DETAILS}
       }
