@@ -144,6 +144,14 @@ export class Subscription {
     return new PaymentMethod(this.data.paymentMethod);
   }
 
+  get processedOrdersCount() {
+    return this.processedSubscriptionOrdersCount + 1;
+  }
+
+  get processedSubscriptionOrdersCount() {
+    return this.data.processedSubscriptionOrdersCount;
+  }
+
   get status() {
     return this.data.status;
   }

@@ -20,6 +20,30 @@ export class SubscriptionFrequency {
     return this.data.intervalCount.toString();
   }
 
+  get maxCycles() {
+    return this.data.maxCycles;
+  }
+
+  get maxTotalCycles() {
+    if (!this.maxCycles) {
+      return this.maxCycles;
+    }
+
+    return this.maxCycles + 1;
+  }
+
+  get minCycles() {
+    return this.data.maxCycles;
+  }
+
+  get minTotalCycles() {
+    if (!this.minCycles) {
+      return this.minCycles;
+    }
+
+    return this.minCycles + 1;
+  }
+
   get summary() {
     if (this.intervalCount === 1) {
       return `Every ${this.interval.toLowerCase()}`;

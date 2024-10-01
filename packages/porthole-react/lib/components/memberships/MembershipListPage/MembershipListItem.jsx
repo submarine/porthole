@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { Badge, Date, Image, TableRow, TableCell, Money } from "../../common";
+import { Badge, Date, Image, TableRow, TableCell, Text, Money } from "../../common";
 import { getToneFromStatus } from '../../../utilities';
 
 export const MembershipListItem = ({ subscription }) => {
@@ -23,7 +23,14 @@ export const MembershipListItem = ({ subscription }) => {
         </Link>
       </TableCell>
       <TableCell>
-        {subscription.subscriptionPlan.frequency.title}
+        <Text>
+          {subscription.subscriptionPlan.frequency.title}
+        </Text>
+        {subscription.subscriptionPlan.frequency.minTotalCycles && (
+          <Text>
+            {subscription.processedOrdersCount} of {subscription.subscriptionPlan.frequency.minTotalCycles}
+          </Text>
+        )}
       </TableCell>
       <TableCell>
         {subscription.nextScheduledOrder ? (

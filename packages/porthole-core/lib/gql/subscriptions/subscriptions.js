@@ -148,6 +148,8 @@ export const SUBSCRIPTION_DETAILS = `
       description
       interval
       intervalCount
+      maxCycles
+      minCycles
     }
   }
   updatedAt
