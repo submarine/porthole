@@ -5,6 +5,7 @@ import { useSubscriptionOrder } from '../../../../hooks';
 
 import { Section, SectionContent, SectionHeader } from '../../../common';
 import { MembershipOrderSectionContent } from './MembershipOrderSectionContent';
+import {MembershipOrderDetailLine} from "./MembershipOrderDetailLine.jsx";
 
 export const MembershipOrderSection = ({ subscription }) => {
   const { subscriptionOrderId } = useParams();
@@ -17,18 +18,13 @@ export const MembershipOrderSection = ({ subscription }) => {
   });
 
   return (
-    <Section>
-      <SectionHeader
-        title={`Upcoming payment ${subscriptionOrder ? subscriptionOrder.identifier : '...'}`}
+    <div>
+      <MembershipOrderSectionContent
+        subscription={subscription}
+        subscriptionOrder={subscriptionOrder}
+        subscriptionOrderLoading={subscriptionOrderLoading}
+        subscriptionOrderError={subscriptionOrderError}
       />
-      <SectionContent>
-        <MembershipOrderSectionContent
-          subscription={subscription}
-          subscriptionOrder={subscriptionOrder}
-          subscriptionOrderLoading={subscriptionOrderLoading}
-          subscriptionOrderError={subscriptionOrderError}
-        />
-      </SectionContent>
-    </Section>
+    </div>
   );
 }

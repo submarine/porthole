@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 
 import { useSubscription } from '../../../hooks';
 
-import { Page, PageHeader, PageContent } from '../../common';
 import { MembershipDetailPageContent } from './MembershipDetailPageContent';
 
 export const MembershipDetailPage = () => {
@@ -17,23 +16,12 @@ export const MembershipDetailPage = () => {
   });
 
   return (
-    <Page>
-      <PageHeader
-        title="Account"
-        breadcrumbs={[
-          {
-            href: '/memberships',
-            title: 'Return to Memberships'
-          }
-        ]}
+    <div className="flex flex-col lg:flex-row lg:items-start justify-between">
+      <MembershipDetailPageContent
+        subscription={subscription}
+        subscriptionLoading={subscriptionLoading}
+        subscriptionError={subscriptionError}
       />
-      <PageContent>
-        <MembershipDetailPageContent
-          subscription={subscription}
-          subscriptionLoading={subscriptionLoading}
-          subscriptionError={subscriptionError}
-        />
-      </PageContent>
-    </Page>
+    </div>
   );
 }

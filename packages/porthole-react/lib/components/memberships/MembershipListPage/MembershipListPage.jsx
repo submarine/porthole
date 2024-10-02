@@ -17,31 +17,18 @@ export const MembershipListPage = () => {
   });
 
   return (
-    <Page>
-      <PageHeader
-        title="Account"
-        breadcrumbs={[
-          {
-            external: true,
-            href: '/account',
-            title: 'Return to Account details'
-          }
-        ]}
-      />
-      <PageContent>
-        <Section>
-          <SectionHeader
-            title="Memberships"
-          />
-          <SectionContent>
-            <MembershipListPageContent
-              subscriptionCollection={subscriptionCollection}
-              subscriptionCollectionLoading={subscriptionCollectionLoading}
-              subscriptionCollectionError={subscriptionCollectionError}
-            />
-          </SectionContent>
-        </Section>
-      </PageContent>
-    </Page>
+    <div className="account-orders orders-have-items grow">
+      <div
+        className="header relative flex items-center justify-between rounded bg-brand-marine px-4 py-3 lg:mb-4 lg:px-0 lg:py-0 lg:bg-transparent">
+        <h3 className="text-xl font-medium tracking-normal text-white lg:text-grey-900 lg:text-2xl">Memberships</h3>
+      </div>
+      <div>
+        <MembershipListPageContent
+          subscriptionCollection={subscriptionCollection}
+          subscriptionCollectionLoading={subscriptionCollectionLoading}
+          subscriptionCollectionError={subscriptionCollectionError}
+        />
+      </div>
+    </div>
   );
 }

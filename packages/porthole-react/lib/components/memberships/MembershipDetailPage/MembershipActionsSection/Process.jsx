@@ -29,6 +29,7 @@ export const Process = ({ subscription }) => {
   return (
     <>
       <Button
+        className="button-outlined text-base tracking-default block js-modal-dialog-trigger"
         disabled={!canProcessSubscriptionOrder || subscriptionOrderProcessing}
         onClick={() => { setOpen(true) }}
         size="micro"

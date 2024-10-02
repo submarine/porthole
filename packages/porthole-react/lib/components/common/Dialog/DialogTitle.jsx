@@ -6,8 +6,8 @@ export const DialogTitle = ({ title, ...props }) => {
   const { className, style } = useThemedComponent('DialogTitle');
 
   return (
-    <h2 className={className} style={style} {...props}>
+    <h3 className="text-xl font-medium tracking-normal font-sans text-grey-900 capitalize">
       {title}
-    </h2>
+    </h3>
   );
 };

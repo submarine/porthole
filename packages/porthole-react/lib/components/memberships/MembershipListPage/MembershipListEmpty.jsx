@@ -4,10 +4,10 @@ import { Banner } from '../../common/index.js';
 
 export const MembershipListEmpty = () => {
   return (
-    <Banner title="No subscriptions found.">
-      <p>
-        You don't have any memberships. <a href="/">Browse our store</a> to start one.
-      </p>
-    </Banner>
+    <div className="flex min-h-[220px] items-center justify-center rounded border border-grey-400 md:min-h-[236px]">
+      <div className="text-center">
+        <span className="text-sm">No memberships</span>
+      </div>
+    </div>
   )
 }

@@ -1,0 +1,111 @@
+{
+  "Badge": {
+    "styles": {
+      "base": {
+        "textTransform": "capitalize"
+      }
+    }
+  },
+  "Button": {
+    "classes": {
+      "base": "button-outlined text-base tracking-default",
+      "loading": "loading",
+      "size": {
+        "micro": "button--small"
+      },
+      "variant": {
+        "primary": "button-primary",
+        "secondary": "button-outlined",
+        "tertiary": ""
+      }
+    }
+  },
+  "Dialog": {
+    "classes": {
+      "base": "modal-dialog",
+      "open": "modal-dialog-opened"
+    },
+    "styles": {
+      "open": {
+        "zIndex": "50"
+      }
+    }
+  },
+  "DialogActions": {
+    "styles": {
+      "base": {
+        "marginTop": "2.5rem"
+      }
+    }
+  },
+  "DialogPanel": {
+    "classes": {
+      "base": "w-full mx-4 max-w-[344px] rounded-lg md:max-w-[480px] shadow-1 modal-dialog-content js-content-modal-dialog active"
+    }
+  },
+  "InlineStack": {
+    "styles": {
+      "base": {
+        "display": "flex",
+        "flexWrap": "nowrap",
+        "gap": "8px"
+      },
+      "wrap": {
+        "flexWrap": "wrap"
+      },
+      "align": {
+        "end": {
+          "alignItems": "end"
+        }
+      }
+    }
+  },
+  "PageHeader": {
+    "classes": {
+      "base": "header relative flex items-center justify-between rounded bg-brand-marine px-4 py-3 lg:mb-4 lg:px-0 lg:py-0 lg:bg-transparent"
+    }
+  },
+  "Table": {
+    "classes": {
+      "base": "w-full"
+    }
+  },
+  "TableBody": {
+    "classes": {
+      "base": "account-order-details-inner border-b border-default last:border-transparent grid gap-4 lg:table-row-group"
+    },
+    "styles": {
+      "base": {
+        "verticalAlign": "middle"
+      }
+    }
+  },
+  "TableCell": {
+    "classes": {
+      "base": "lg:py-4 flex lg:table-cell text-sm text-grey-700 tracking-default before:content-[attr(data-label)] before:block before:w-[120px] before:text-grey-900 before:text-sm before:font-bold before:mr-6 lg:before:hidden"
+    }
+  },
+  "TableHead": {
+    "classes": {
+      "base": "account-order-details-inner border-b border-default last:border-transparent grid gap-4 lg:table-row-group"
+    }
+  },
+  "TableHeader": {
+    "classes": {
+      "base": "py-4 bg-brand-marine text-left text-sm text-white font-bold tracking-default"
+    }
+  },
+  "TableRow": {
+    "classes": {
+      "base": "p-4 lg:p-0 grid gap-y-1 lg:gap-y-0 lg:table-row "
+    }
+  },
+  "Text": {
+    "classes": {
+      "as": {
+        "h1": "text-xl font-medium tracking-normal text-white lg:text-grey-900 lg:text-2xl",
+        "h2": "text-lg font-medium tracking-normal text-white lg:text-grey-900 lg:text-xl"
+      }
+    }
+  }
+}

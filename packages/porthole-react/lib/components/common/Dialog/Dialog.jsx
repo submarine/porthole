@@ -16,10 +16,14 @@ export const Dialog = ({ open, title, description, actions, children, ...props }
   return (
     <HeadlessDialog open={open} className={className} style={style} {...props}>
       <DialogPanel>
-        <DialogTitle title={title} />
-        <DialogDescription description={description} />
-        {children}
-        <DialogActions actions={actions} />
+        <div className="relative modal-dialog-inner">
+          <div className="flex flex-col gap-4 px-4 py-6 md:p-8">
+            <DialogTitle title={title} />
+            <DialogDescription description={description} />
+            {children}
+            <DialogActions actions={actions} />
+          </div>
+        </div>
       </DialogPanel>
     </HeadlessDialog>
   );
