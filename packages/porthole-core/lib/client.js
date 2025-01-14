@@ -2,7 +2,7 @@ import { isJwtExpired } from 'jwt-check-expiration';
 import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client/core";
 import { setContext } from "@apollo/client/link/context";
 
-const API_ENDPOINT = 'https://api.getsubmarine.com/graphql';
+const API_ENDPOINT = 'https://api.submarineplatform.com/graphql';
 const LOCAL_STORAGE_KEY = 'submarine-customer-token';
 
 const accessToken = () => localStorage.getItem(LOCAL_STORAGE_KEY);

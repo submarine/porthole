@@ -18,7 +18,7 @@ export const MembershipList = ({ subscriptionCollection }) => {
         <tbody className="account-order-details-inner border-b border-default last:border-transparent grid gap-4 lg:table-row-group">
           <tr className="hidden lg:table-row">
             <th className="py-4 bg-brand-marine text-left text-sm text-white font-bold tracking-default w-[calc(130/884*100%)] lg:pl-5 lg:rounded-l">
-              Membership
+              Membership ID
             </th>
             <th className="py-4 bg-brand-marine text-left text-sm text-white font-bold tracking-default w-[calc(160/884*100%)]">
               Payment frequency
