@@ -9,6 +9,8 @@ const accessToken = () => localStorage.getItem(LOCAL_STORAGE_KEY);
 
 const accessTokenExpired = () => isJwtExpired(accessToken());
 
+const clearAccessToken = () => localStorage.removeItem(LOCAL_STORAGE_KEY);
+
 const refreshAccessToken = async () => {
   const response = await fetch('/apps/platform/tokens');
   const token = await response.text();
@@ -35,6 +37,10 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
+
+// Access token is cleared on page load to avoid tokens persisting across page loads and
+// (potentially) customer sessions.
+clearAccessToken();
 
 export {
   client
