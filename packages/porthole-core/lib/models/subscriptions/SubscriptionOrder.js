@@ -17,9 +17,9 @@ export class SubscriptionOrder {
     if (this.isSkipped) return false;
     if (this.paymentStatus === 'SUCCEEDED') return false;
 
-    if (this.lastProcessedOrder) {
-      if (this.lastProcessedOrder.cycleIndex !== this.cycleIndex - 1) return false;
-    } else if (this.cycleIndex > 1) return false;
+    // if (this.lastProcessedOrder) {
+    //   if (this.lastProcessedOrder.cycleIndex !== this.cycleIndex - 1) return false;
+    // } else if (this.cycleIndex > 1) return false;
 
     return true;
   }
@@ -98,6 +98,10 @@ export class SubscriptionOrder {
 
   get isProcessed() {
     return this.data.status === 'PROCESSED';
+  }
+
+  get isProcessing() {
+    return this.data.status === 'PROCESSING';
   }
 
   get isScheduled() {

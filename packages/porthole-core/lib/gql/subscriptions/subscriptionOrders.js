@@ -224,6 +224,7 @@ export const SUBSCRIPTION_ORDER_DETAILS = `
       basePricePolicy
     }
     subscriptionPlan {
+      id
       frequency {
         description
       }

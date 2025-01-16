@@ -5,4 +5,3 @@ export * from './MembershipDetailPageContent';
 export * from './MembershipOrderSection';
 export * from './MembershipOverviewSection';
 export * from './MembershipPaymentSection';
-export * from './MembershipStatusSection';

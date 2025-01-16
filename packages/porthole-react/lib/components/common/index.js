@@ -4,6 +4,7 @@ export * from './Banner';
 export * from './Button';
 export * from './Date';
 export * from './Dialog';
+export * from './Duration';
 export * from './Field';
 export * from './Image';
 export * from './InlineStack';

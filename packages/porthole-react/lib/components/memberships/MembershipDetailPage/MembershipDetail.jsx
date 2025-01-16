@@ -6,10 +6,10 @@ import {MembershipActionsSection, Process} from './MembershipActionsSection';
 import {MembershipOrderDetailLine, MembershipOrderSection} from './MembershipOrderSection';
 import { MembershipOverviewSection } from './MembershipOverviewSection';
 import {MembershipPaymentSection, UpdatePaymentMethod} from './MembershipPaymentSection';
-import { MembershipStatusSection } from './MembershipStatusSection';
 import {Date, InlineStack, PaymentMethod, Text, Time} from "../../common/index.js";
-import {Cancel} from "./MembershipStatusSection/Cancel.jsx";
-import {RevertScheduledCancellation} from "./MembershipStatusSection/RevertScheduledCancellation.jsx";
+import {Cancel} from "./MembershipActionsSection/Cancel.jsx";
+import {RevertScheduledCancellation} from "./MembershipActionsSection/RevertScheduledCancellation.jsx";
+import {UpgradeDowngrade} from "./MembershipActionsSection/UpgradeDowngrade.jsx";
 
 export const MembershipDetail = ({ subscription }) => {
   return (
@@ -34,13 +34,20 @@ export const MembershipDetail = ({ subscription }) => {
           )}
           {subscription.isActive && (
             <p className="text-sm tracking-default">
-              Your next payment will be processed on <Date dateTime={subscription.nextBillingAt} /> at <Time dateTime={subscription.nextBillingAt} />.
+              {subscription.nextScheduledOrder.isProcessing ? (
+                <span>Your next renewal is currently processing. You will receive an email confirmation when complete.</span>
+              ) : !!subscription.nextScheduledOrder ? (
+                  <span>Your next renewal will be processed on <Date dateTime={subscription.nextScheduledOrder.expectedBillingAt} /> at <Time dateTime={subscription.nextScheduledOrder.expectedBillingAt} />.</span>
+                ) : (
+                  <span>-</span>
+                )
+              }
             </p>
           )}
           {subscription.isCancelled && (
-            <p className="text-sm tracking-default">
-              This membership was cancelled on <Date dateTime={subscription.cancelledAt} /> at <Time dateTime={subscription.cancelledAt} />.
-            </p>
+              <p className="text-sm tracking-default">
+                This membership was cancelled on <Date dateTime={subscription.cancelledAt} /> at <Time dateTime={subscription.cancelledAt} />.
+              </p>
           )}
         </div>
 
@@ -50,28 +57,9 @@ export const MembershipDetail = ({ subscription }) => {
       </div>
       <div className="mt-8 lg:max-w-[340px] shrink-0 w-full border-grey-200 lg:p-6 lg:mt-0 lg:border lg:rounded-lg lg:shadow-1">
         <div className="flex flex-col">
-          <div className="w-full pb-6 border-b border-grey-300">
-            <Process subscription={subscription} />
-          </div>
-          <div className="w-full py-6 border-b border-grey-300">
-            <h3 className="mb-2.5 text-lg font-medium text-grey-900">Payment method</h3>
-            <div className="mb-4">
-              <PaymentMethod paymentMethod={subscription.paymentMethod} />
-            </div>
-            {subscription.canUpdatePaymentMethod && <UpdatePaymentMethod paymentMethod={subscription.paymentMethod} />}
-          </div>
-          <div className="w-full pt-6">
-            <h3 className="mb-2.5 text-lg font-medium text-grey-900">Manage membership</h3>
-
-            {subscription.isActive && subscription.isPendingCancellation && (<p className="mb-4">
-              Auto-renewal has been turned off and your membership will be automatically cancelled on <Date dateTime={subscription.cancelAt} />.
-            </p>)}
-
-            <InlineStack wrap={true}>
-              {subscription.canCancel && !subscription.isPendingCancellation && <Cancel subscription={subscription} />}
-              {subscription.canRevertScheduledCancellation && <RevertScheduledCancellation subscription={subscription} />}
-            </InlineStack>
-          </div>
+          <MembershipActionsSection
+            subscription={subscription}
+          />
         </div>
 
       </div>

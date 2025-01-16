@@ -21,6 +21,10 @@ export const SUBSCRIPTION_DETAILS = `
   }
   createdAt
   currency
+  customAttributes {
+    name
+    value
+  }
   customer {
     email
     externalId
@@ -122,6 +126,7 @@ export const SUBSCRIPTION_DETAILS = `
   paymentMethod {
     activePaymentInstrument {
       description
+      id
     }
     id
   }

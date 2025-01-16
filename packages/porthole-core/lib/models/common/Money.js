@@ -16,4 +16,8 @@ export class Money {
     return this.data.currency;
   }
 
+  get isZero() {
+    return this.cents === 0;
+  }
+
 }

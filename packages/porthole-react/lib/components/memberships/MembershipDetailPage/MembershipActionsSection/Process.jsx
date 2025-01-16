@@ -25,6 +25,7 @@ export const Process = ({ subscription }) => {
   });
 
   const canProcessSubscriptionOrder = subscription.isActive && nextScheduledOrder && nextScheduledOrder.canProcess;
+  const nextScheduledOrderIsFree = nextScheduledOrder && nextScheduledOrder.totalPrice.isZero;
 
   return (
     <>
@@ -34,13 +35,13 @@ export const Process = ({ subscription }) => {
         onClick={() => { setOpen(true) }}
         size="micro"
       >
-        Pay now
+        {nextScheduledOrderIsFree ? 'Process' : 'Pay'} now
       </Button>
 
       <Dialog
         open={open}
-        title="Pay now"
-        description="Want to pay your next membership renewal in advance?"
+        title={`${nextScheduledOrderIsFree ? 'Process' : 'Pay'} now`}
+        description="Want to process your next membership renewal in advance?"
         actions={[
           {
             label: 'Cancel',
@@ -50,7 +51,7 @@ export const Process = ({ subscription }) => {
             onClick: closeDialog,
           },
           {
-            label: 'Yes, pay now',
+            label: 'Yes, process now',
             size: 'micro',
             disabled: subscriptionOrderProcessing,
             loading: subscriptionOrderProcessing,
@@ -64,9 +65,17 @@ export const Process = ({ subscription }) => {
             {processSubscriptionOrderError.message}
           </Banner>
         )}
-        <p>
-          No problems - confirm below and we'll process your payment straight away.
-        </p>
+        {nextScheduledOrderIsFree ? (
+          <>
+            <p>
+              No problems - as your next renewal has been prepaid under your annual plan, you won't be charged but will receive your membership benefits.
+            </p>
+          </>
+        ) : (
+          <p>
+            No problems - confirm below and we'll process your renewal straight away.
+          </p>
+        )}
       </Dialog>
     </>
   );

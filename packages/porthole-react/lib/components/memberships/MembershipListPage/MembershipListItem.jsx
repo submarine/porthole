@@ -14,24 +14,15 @@ export const MembershipListItem = ({ index, subscription }) => {
 
   return (
     <tr className={className}>
-      <td className={`lg:py-4 flex lg:table-cell text-sm text-grey-700 tracking-default before:content-[attr(data-label)] before:block before:w-[120px] before:text-grey-900 before:text-sm before:font-bold before:mr-6 lg:before:hidden lg:pl-5 lg:rounded-l ${!!(index % 2) ? 'bg-grey-100' : ''}`}>
+      <td className="" data-label="Membership ID">
         <Link className="link underline" to={`/memberships/${subscription.id}`}>
           {subscription.identifier}
         </Link>
       </td>
-      <td className={`lg:py-4 flex lg:table-cell text-sm text-grey-700 tracking-default before:content-[attr(data-label)] before:block before:w-[120px] before:text-grey-900 before:text-sm before:font-bold before:mr-6 lg:before:hidden ${!!(index % 2) ? 'bg-grey-100' : ''}`}>
-        <Text>
-          {subscription.subscriptionPlan.frequency.title}
-        </Text>
+      <td className="" data-label="Payment frequency">
+        {subscription.subscriptionPlan.frequency.title}
       </td>
-      <td className={`lg:py-4 flex lg:table-cell text-sm text-grey-700 tracking-default before:content-[attr(data-label)] before:block before:w-[120px] before:text-grey-900 before:text-sm before:font-bold before:mr-6 lg:before:hidden ${!!(index % 2) ? 'bg-grey-100' : ''}`}>
-        {subscription.subscriptionPlan.frequency.minTotalCycles && (
-          <Text>
-            {subscription.processedOrdersCount} of {subscription.subscriptionPlan.frequency.minTotalCycles}
-          </Text>
-        )}
-      </td>
-      <td className={`lg:py-4 flex lg:table-cell text-sm text-grey-700 tracking-default before:content-[attr(data-label)] before:block before:w-[120px] before:text-grey-900 before:text-sm before:font-bold before:mr-6 lg:before:hidden ${!!(index % 2) ? 'bg-grey-100' : ''}`}>
+      <td className="" data-label="Next payment">
         {subscription.nextScheduledOrder ? (
           <>
             <Date dateTime={subscription.nextScheduledOrder.expectedBillingAt} /> for <Money money={subscription.nextScheduledOrder.totalPrice} />
@@ -40,7 +31,7 @@ export const MembershipListItem = ({ index, subscription }) => {
           <span>-</span>
         )}
       </td>
-      <td className={`lg:py-4 flex lg:table-cell text-sm text-grey-700 tracking-default before:content-[attr(data-label)] before:block before:w-[120px] before:text-grey-900 before:text-sm before:font-bold before:mr-6 lg:before:hidden lg:text-right lg:pr-5 lg:rounded-r ${!!(index % 2) ? 'bg-grey-100' : ''}`}>
+      <td className="" data-label="Status">
         {subscription.status}
       </td>
     </tr>

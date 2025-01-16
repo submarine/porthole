@@ -58,6 +58,18 @@ export class Subscription {
     return true;
   }
 
+  get createdAt() {
+    return this.data.createdAt;
+  }
+
+  get customAttributes() {
+    return this.data.customAttributes || [];
+  }
+
+  get customAttributesHash() {
+    return this.customAttributes.reduce((hash, attribute) => ({ ...hash, [attribute.name]: attribute.value }), {})
+  }
+
   get deliveryMethod() {
     if (!this.data.deliveryMethod) return null;
 

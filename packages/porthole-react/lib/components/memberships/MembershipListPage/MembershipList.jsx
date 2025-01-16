@@ -23,9 +23,6 @@ export const MembershipList = ({ subscriptionCollection }) => {
             <th className="py-4 bg-brand-marine text-left text-sm text-white font-bold tracking-default w-[calc(160/884*100%)]">
               Payment frequency
             </th>
-            <th className="py-4 bg-brand-marine text-left text-sm text-white font-bold tracking-default w-[calc(160/884*100%)]">
-              Instalment
-            </th>
             <th className="py-4 bg-brand-marine text-left text-sm text-white font-bold tracking-default w-[calc(155/884*100%)]">
               Next payment
             </th>

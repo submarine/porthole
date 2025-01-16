@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import { useRevertScheduledSubscriptionCancellation } from '../../../../hooks';
-import { Banner, Button, Dialog } from '../../../common';
+import { useRevertScheduledSubscriptionCancellation } from '../../../../hooks/index.js';
+import {Banner, Button, Date, Dialog} from '../../../common/index.js';
 
 export const RevertScheduledCancellation = ({ subscription }) => {
   const [open, setOpen] = useState(false);
@@ -29,21 +29,20 @@ export const RevertScheduledCancellation = ({ subscription }) => {
         disabled={!canRevertScheduledCancellation || scheduledSubscriptionCancellationReverting}
         onClick={() => { setOpen(true) }}
       >
-        Turn on auto-renewal
+        Revert downgrade request
       </Button>
 
       <Dialog
         open={open}
-        title="Turn on auto-renewal"
-        description="Want your membership to automatically renew at the end of the current season?"
+        title="Revert downgrade request"
         actions={[
           {
-            label: "No, don't turn on",
+            label: "No, don't revert",
             disabled: scheduledSubscriptionCancellationReverting,
             onClick: closeDialog
           },
           {
-            label: 'Yes, turn on auto-renewal',
+            label: 'Yes, revert downgrade request',
             disabled: scheduledSubscriptionCancellationReverting,
             loading: scheduledSubscriptionCancellationReverting,
             onClick: revertScheduledSubscriptionCancellation
@@ -57,7 +56,7 @@ export const RevertScheduledCancellation = ({ subscription }) => {
           </Banner>
         )}
         <p>
-          Your membership will automatically renew next season.
+          Your membership is scheduled to be downgraded at your request. You can revert this request and maintain your current subscription.
         </p>
       </Dialog>
     </>
