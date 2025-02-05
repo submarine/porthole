@@ -3,7 +3,7 @@
   "description": "React application for integrating Submarine with Liquid Shopify themes.",
   "private": false,
   "license": "SEE LICENSE IN LICENSE.md",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
