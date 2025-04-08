@@ -64,9 +64,9 @@ export const Process = ({ subscription }) => {
           </Banner>
         )}
         <p>
-          No problems - confirm below and we'll process your order straight away. This order will be delivered to:
+          No problems - confirm below and we'll process your order straight away. {subscription.deliveryMethod?.address ? 'This order will be delivered to:' : ''}
         </p>
-        <Address address={subscription.deliveryMethod.address} />
+        {subscription.deliveryMethod?.address ? <Address address={subscription.deliveryMethod.address} /> : null}
       </Dialog>
     </>
   );

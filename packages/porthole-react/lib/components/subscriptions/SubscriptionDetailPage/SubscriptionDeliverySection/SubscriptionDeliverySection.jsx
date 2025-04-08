@@ -9,7 +9,11 @@ export const SubscriptionDeliverySection = ({ subscription }) => {
         title="Delivery"
       />
       <SectionContent>
-        <Address address={subscription.deliveryMethod.address} />
+        {subscription.deliveryMethod?.address ? (
+          <Address address={subscription.deliveryMethod.address} />
+        ) : (
+          <p>No address.</p>
+        )}
       </SectionContent>
     </Section>
   );
