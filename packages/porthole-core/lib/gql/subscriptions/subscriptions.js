@@ -11,6 +11,8 @@ export const SUBSCRIPTION_DETAILS = `
       description
       interval
       intervalCount
+      maxCycles
+      minCycles
     }
     id
   }
@@ -215,6 +217,10 @@ export const GET_DELIVERY_SLOTS = gql`
         }
         frequency {
           description
+          interval
+          intervalCount
+          maxCycles
+          minCycles
         }
         id
         name

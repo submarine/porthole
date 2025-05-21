@@ -227,6 +227,10 @@ export const SUBSCRIPTION_ORDER_DETAILS = `
     subscriptionPlan {
       frequency {
         description
+        interval
+        intervalCount
+        maxCycles
+        minCycles
       }
       id
       name
