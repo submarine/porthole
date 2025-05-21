@@ -98,6 +98,29 @@ export const SUBSCRIPTION_DETAILS = `
     expectedBillingAt
     expectedDeliveryAt
     financials {
+      discounts {
+        total {
+          amount
+          currency
+        }
+      }
+      shipping {
+        total {
+          amount
+          currency
+        }
+      }
+      subtotal {
+        amount
+        currency
+      }
+      tax {
+        behaviour
+        total {
+          amount
+          currency
+        }
+      }
       totalPrice {
         amount
         currency
@@ -123,6 +146,7 @@ export const SUBSCRIPTION_DETAILS = `
   paymentMethod {
     activePaymentInstrument {
       description
+      id
     }
     id
   }

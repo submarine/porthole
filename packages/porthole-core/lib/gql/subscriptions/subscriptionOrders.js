@@ -190,6 +190,7 @@ export const SUBSCRIPTION_ORDER_DETAILS = `
   paymentMethod {
     activePaymentInstrument {
       description
+      id
       paymentSource {
         ... on Card {
           brand
@@ -227,6 +228,7 @@ export const SUBSCRIPTION_ORDER_DETAILS = `
       frequency {
         description
       }
+      id
       name
       subscriptionPlanGroup {
         name

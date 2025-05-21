@@ -3,6 +3,7 @@ import { gql } from "@apollo/client/core";
 export const PAYMENT_METHOD_DETAILS = `
   activePaymentInstrument {
     description
+    id
     paymentSource {
       ... on Card {
         brand
