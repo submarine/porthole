@@ -14,9 +14,9 @@ export const SubscriptionStatusSection = ({ subscription }) => {
       />
       <SectionContent>
         <InlineStack wrap={true}>
-          {subscription.canPause && <Pause subscription={subscription} />}
-          {subscription.canResume && <Resume subscription={subscription} />}
-          {subscription.canCancel && <Cancel subscription={subscription} />}
+          <Pause subscription={subscription} />
+          <Resume subscription={subscription} />
+          <Cancel subscription={subscription} />
         </InlineStack>
       </SectionContent>
     </Section>
