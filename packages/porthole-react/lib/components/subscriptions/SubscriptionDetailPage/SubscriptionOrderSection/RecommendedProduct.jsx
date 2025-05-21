@@ -36,7 +36,7 @@ export const RecommendedProduct = ({ product, editableLines, addEditableLine }) 
 
   const selectedVariantImage = product.images.find(image => {
     return image.variant_ids.includes(selectedVariantId);
-  }) || product.image;
+  }) || product.image || product.images[0];
 
   const handleAdd = () => {
     addEditableLine(new EditableSubscriptionLine(new SubscriptionLine({
@@ -77,7 +77,7 @@ export const RecommendedProduct = ({ product, editableLines, addEditableLine }) 
         <small>{selectedVariant.sku}</small>
       </TableCell>
       <TableCell align="center">
-        <Select value={selectedVariantId} onChange={e => setSelectedVariantId(parseInt(e.target.value, 10))}>
+        {availableVariants > 1 ? (<Select value={selectedVariantId} onChange={e => setSelectedVariantId(parseInt(e.target.value, 10))}>
           {availableVariants.map(availableVariant => {
             return (
               <option key={availableVariant.id} value={availableVariant.id}>
@@ -85,7 +85,7 @@ export const RecommendedProduct = ({ product, editableLines, addEditableLine }) 
               </option>
             )
           })}
-        </Select>
+        </Select>) : null}
       </TableCell>
       <TableCell align="center">
         <Money money={{

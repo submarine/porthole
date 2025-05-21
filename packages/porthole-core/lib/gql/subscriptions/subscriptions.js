@@ -3,6 +3,7 @@ import { gql } from '@apollo/client/core';
 export const SUBSCRIPTION_DETAILS = `
   availableSubscriptionPlans {
     anchors {
+      description
       id
       name
     }

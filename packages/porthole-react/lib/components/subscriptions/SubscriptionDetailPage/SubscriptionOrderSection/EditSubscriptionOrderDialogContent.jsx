@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 
-import { useProductRecommendations } from '../../../../hooks';
+import { useCollectionProducts } from '../../../../hooks';
 import { Banner, Button, Dialog, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../common';
 import { EditableLine } from './EditableLine';
 import { RecommendedProduct } from './RecommendedProduct';
 
 export const EditSubscriptionOrderDialogContent = ({ subscriptionOrder, editableLines, addEditableLine, removeEditableLine }) => {
   const {
-    productRecommendations,
-    productRecommendationsLoading
-  } = useProductRecommendations({
-    productIds: subscriptionOrder.lines.map(line => line.product.externalId)
+    collectionProducts,
+    collectionProductsLoading
+  } = useCollectionProducts({
+    collection: 'subscription'
   });
 
   return (
@@ -42,7 +42,7 @@ export const EditSubscriptionOrderDialogContent = ({ subscriptionOrder, editable
           </TableRow>
         </TableHead>
         <TableBody>
-          {productRecommendations.map(product => {
+          {collectionProducts.map(product => {
             return (
               <RecommendedProduct
                 key={product.id}

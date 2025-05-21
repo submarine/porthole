@@ -80,7 +80,7 @@ export const SetFrequency = ({ subscription }) => {
             return availableSubscriptionPlan.anchors.map(anchor => {
               return (
                 <option key={anchor.gid} value={anchor.gid}>
-                  {anchor.name}
+                  {anchor.name} {anchor.description}
                 </option>
               );
             });

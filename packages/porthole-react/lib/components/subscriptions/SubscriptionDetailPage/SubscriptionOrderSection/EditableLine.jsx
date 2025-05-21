@@ -29,7 +29,7 @@ export const EditableLine = ({ editableLine, removeEditableLine }) => {
         <small>{editableLine.productVariant.sku}</small>
       </TableCell>
       <TableCell align="left">
-        {editableLine.productVariant.optionsTitle}
+        {editableLine.productVariant.optionsTitle !== 'Default Title' ? editableLine.productVariant.optionsTitle : null}
       </TableCell>
       <TableCell align="center">
         <Money money={editableLine.unitPrice} />
