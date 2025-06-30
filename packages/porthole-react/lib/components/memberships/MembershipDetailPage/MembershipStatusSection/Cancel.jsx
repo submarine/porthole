@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { useCancelSubscription } from '../../../../hooks';
 import { Banner, Button, Dialog } from '../../../common';
 
+import { DateTime } from "luxon";
+
 export const Cancel = ({ subscription }) => {
   const [open, setOpen] = useState(false);
 
@@ -22,6 +24,12 @@ export const Cancel = ({ subscription }) => {
   });
 
   const canCancelSubscription = subscription.canCancel;
+
+  const today = DateTime.now();
+  let nextCancelAt = DateTime.local(today.year, 7, 31);
+  if (nextCancelAt <= today) {
+    nextCancelAt = nextCancelAt.plus({ years: 1 });
+  }
 
   return (
     <>
@@ -48,7 +56,7 @@ export const Cancel = ({ subscription }) => {
             loading: subscriptionCancelling,
             onClick: () => {
               cancelSubscription({
-                cancelAt: '2025-06-30T00:00:00Z'
+                cancelAt: `${nextCancelAt.toISODate()}T00:00:00Z`
               })
             }
           }
