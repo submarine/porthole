@@ -27,7 +27,7 @@ ReactDOM.createRoot(document.getElementById('porthole-root')).render(
     <ConfigurationContext.Provider value={configurationContext}>
       <ContextContext.Provider value={contextContext}>
         <ThemeContext.Provider value={themeContext}>
-          <ApolloProvider client={withAuthenticationErrorLink(client)}>
+          <ApolloProvider client={withAuthenticationErrorLink(client, configurationContext)}>
             <Porthole />
           </ApolloProvider>
         </ThemeContext.Provider>
