@@ -32,7 +32,7 @@ export const MembershipDetail = ({ subscription }) => {
               {subscription.processedOrdersCount} of {subscription.subscriptionPlan.frequency.minTotalCycles} payments processed.
             </p>
           )}
-          {subscription.isActive && (
+          {subscription.isActive && subscription.nextScheduledOrder && (
             <p className="text-sm tracking-default">
               Your next payment will be processed on <Date dateTime={subscription.nextBillingAt} /> at <Time dateTime={subscription.nextBillingAt} />.
             </p>
