@@ -14,14 +14,14 @@ export const MembershipOverviewSection = ({ subscription }) => {
             {subscription.processedOrdersCount} of {subscription.subscriptionPlan.frequency.minTotalCycles} payments processed.
           </Text>
         )}
-        {subscription.isActive && (
+        {subscription.isActive && subscription.nextScheduledOrder && (
           <Text>
-          Your next payment will be processed on <Date dateTime={subscription.nextBillingAt} /> at <Time dateTime={subscription.nextBillingAt} />.
+            Your next payment will be processed on <Date dateTime={subscription.nextBillingAt} /> at <Time dateTime={subscription.nextBillingAt} />.
           </Text>
         )}
         {subscription.isCancelled && (
           <Text>
-          This membership was cancelled on <Date dateTime={subscription.cancelledAt} /> at <Time dateTime={subscription.cancelledAt} />.
+            This membership was cancelled on <Date dateTime={subscription.cancelledAt} /> at <Time dateTime={subscription.cancelledAt} />.
           </Text>
         )}
       </SectionContent>
