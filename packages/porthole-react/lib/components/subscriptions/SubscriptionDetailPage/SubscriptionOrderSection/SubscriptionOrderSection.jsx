@@ -13,7 +13,7 @@ export const SubscriptionOrderSection = ({ subscription }) => {
     subscriptionOrderLoading,
     subscriptionOrderError
   } = useSubscriptionOrder({
-    id: subscriptionOrderId || subscription.nextScheduledOrder.id
+    id: subscriptionOrderId || subscription.nextScheduledOrder?.id
   });
 
   return (
