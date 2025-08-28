@@ -5,7 +5,7 @@ export const withAuthenticationErrorLink = ((client, configurationContext) => {
 
   const authenticationErrorLink = onError(({ networkError }) => {
     if (networkError && networkError.statusCode === 401) {
-      const currentLocationEncoded = encodeURI(window.location.href)
+      const currentLocationEncoded = encodeURIComponent(window.location.pathname)
       window.location.href = `/${hasLegacyCustomerAccounts ? 'account' : 'customer_authentication'}/login?return_to=${currentLocationEncoded}`
     }
   });
