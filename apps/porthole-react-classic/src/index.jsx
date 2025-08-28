@@ -7,7 +7,7 @@ import { ConfigurationContext, ContextContext, ThemeContext, parseJsonScript } f
 
 import Porthole from '../lib/app/Porthole';
 
-import { buildThemeContext } from '../lib/helpers';
+import { buildThemeContext, withAuthenticationErrorLink } from '../lib/helpers';
 
 // build configuration context
 const configurationContext = parseJsonScript(document, 'porthole-configuration');
@@ -27,7 +27,7 @@ ReactDOM.createRoot(document.getElementById('porthole-root')).render(
     <ConfigurationContext.Provider value={configurationContext}>
       <ContextContext.Provider value={contextContext}>
         <ThemeContext.Provider value={themeContext}>
-          <ApolloProvider client={client}>
+          <ApolloProvider client={withAuthenticationErrorLink(client)}>
             <Porthole />
           </ApolloProvider>
         </ThemeContext.Provider>
